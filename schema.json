@@ -1,0 +1,2301 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "schema.json",
+  "title": "SCN Workflow Config v3",
+  "description": "Validates a given workflow config v3",
+  "type": "object",
+  "properties": {
+    "configuration-version": {
+      "const": "3"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/nodes/starts/formStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/personaStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/selectiveProfileStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/targetGroupStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/milestoneStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/passiveStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/copyToWorkflowAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/delayAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/notificationMailingAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/sendLetterAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/sendMailingAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/setActivityScoreAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/setProfileAttributeValueAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/setMilestoneAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/dateTimeCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/articleOpenedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/formEntryCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/isProfilePersonaCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/leadpageOpenedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/mailingActivityCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/mailingClickedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/mailingOpenedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/mailingReceivedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/profileAttributeTestCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/profileInRadiusOfLocationCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/scoreAccomplishedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/smartLinkLinkClickedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/webTouchPointOpenedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/externalCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/hasReachedMilestoneCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/numberOfRunsCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/percentualSplitCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/workflowFinishedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/endPoints/endPoint"
+          }
+        ]
+      }
+    },
+    "helpers": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/helpers/postit"
+          },
+          {
+            "$ref": "#/definitions/helpers/referenceObject"
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "nodes",
+    "helpers",
+    "configuration-version"
+  ],
+  "definitions": {
+    "nodes": {
+      "starts": {
+        "formStart": {
+          "title": "formStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "formStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "formId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                },
+                "handleUpdates": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "startTime",
+                "formId",
+                "multipass",
+                "handleUpdates"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "personaStart": {
+          "title": "personaStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "personaStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "personaId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "startTime",
+                "personaId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "selectiveProfileStart": {
+          "title": "selectiveProfileStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "selectiveProfileStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "poolId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeOptionId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "startTime",
+                "poolId",
+                "poolAttributeId",
+                "poolAttributeOptionId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "targetGroupStart": {
+          "title": "targetGroupStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "targetGroupStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "targetGroupId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "startTime",
+                "targetGroupId",
+                "multipass"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "milestoneStart": {
+          "title": "milestoneStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "milestoneStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "milestoneId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "startTime",
+                "milestoneId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "passiveStart": {
+          "title": "passiveStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "passiveStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "multipass"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        }
+      },
+      "actions": {
+        "copyToWorkflowAction": {
+          "title": "copyToWorkflowAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "copyToWorkflowAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "workflowId": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "workflowId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "delayAction": {
+          "title": "delayAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "delayAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "wait": {
+                  "$ref": "#/definitions/types/wait"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "wait"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "notificationMailingAction": {
+          "title": "notificationMailingAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "notificationMailingAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "mailingId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "recipients": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "format": "email"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "mailingId",
+                "recipients"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "sendLetterAction": {
+          "title": "sendLetterAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "sendLetterAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "letterId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "ignorePermission": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "letterId",
+                "ignorePermission"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "sendMailingAction": {
+          "title": "sendMailingAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "sendMailingAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "mailingId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "ignorePermission": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "mailingId",
+                "ignorePermission"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "setActivityScoreAction": {
+          "title": "setActivityScoreAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "setActivityScoreAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "scoringGroupId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "scoreValue": {
+                  "type": "integer"
+                },
+                "scoreDescription": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "scoringGroupId",
+                "scoreValue",
+                "scoreDescription"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "setProfileAttributeValueAction": {
+          "title": "setProfileAttributeValueAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "setProfileAttributeValueAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "poolId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeValue": {
+                  "type": "string"
+                },
+                "updateModificationTime": {
+                  "type": "boolean"
+                },
+                "mergeMultipleSelectionField": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "poolId",
+                "poolAttributeId",
+                "poolAttributeValue",
+                "updateModificationTime",
+                "mergeMultipleSelectionField"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "setMilestoneAction": {
+          "title": "setMilestoneAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "setMilestoneAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "milestoneId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "milestoneId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        }
+      },
+      "conditions": {
+        "dateTimeCondition": {
+          "title": "dateTimeCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "dateTimeCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "dateTime": {
+                  "$ref": "#/definitions/types/dateTime"
+                },
+                "operator": {
+                  "enum": [
+                    null,
+                    "before",
+                    "after"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "dateTime",
+                "operator"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "articleOpenedCondition": {
+          "title": "articleOpenedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "articleOpenedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "articleId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "articleId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "formEntryCondition": {
+          "title": "formEntryCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "formEntryCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "formId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "formId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "isProfilePersonaCondition": {
+          "title": "isProfilePersonaCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "isProfilePersonaCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "personaId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "personaId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "leadpageOpenedCondition": {
+          "title": "leadpageOpenedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "leadpageOpenedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "leadpageId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "leadpageId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "mailingActivityCondition": {
+          "title": "mailingActivityCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "mailingActivityCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "emailingId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "emailingId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "mailingClickedCondition": {
+          "title": "mailingClickedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "mailingClickedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "emailingId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "emailingId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "mailingOpenedCondition": {
+          "title": "mailingOpenedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "mailingOpenedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "emailingId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "emailingId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "mailingReceivedCondition": {
+          "title": "mailingReceivedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "mailingReceivedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "emailingId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "emailingId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "profileAttributeTestCondition": {
+          "title": "profileAttributeTestCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "profileAttributeTestCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "poolId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeValue": {
+                  "type": "string"
+                },
+                "operator": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "$ref": "#/definitions/types/baseOperator"
+                    },
+                    {
+                      "$ref": "#/definitions/types/extendedOperator"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "poolId",
+                "poolAttributeId",
+                "poolAttributeValue",
+                "operator"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "profileInRadiusOfLocationCondition": {
+          "title": "profileInRadiusOfLocationCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "profileInRadiusOfLocationCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "position": {
+                  "type": "object",
+                  "properties": {
+                    "longitude": {
+                      "type": "number",
+                      "min": -90,
+                      "max": 90
+                    },
+                    "latitude": {
+                      "type": "number",
+                      "min": -90,
+                      "max": 90
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "longitude",
+                    "latitude"
+                  ]
+                },
+                "radius": {
+                  "$ref": "#/definitions/types/radius"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "position",
+                "radius"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "scoreAccomplishedCondition": {
+          "title": "scoreAccomplishedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "scoreAccomplishedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "scoringGroupId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "scoreValue": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "activity",
+                            "profile"
+                          ]
+                        },
+                        "value": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "const": "matrix"
+                        },
+                        "value": {
+                          "$ref": "#/definitions/types/evalancheId"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "operator": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "$ref": "#/definitions/types/baseOperator"
+                    },
+                    {
+                      "const": "notEqual"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "scoringGroupId",
+                "scoreValue",
+                "operator"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "smartLinkLinkClickedCondition": {
+          "title": "smartLinkLinkClickedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "smartLinkLinkClickedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "smartLinkId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "linkId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "targetId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "smartLinkId",
+                "linkId",
+                "targetId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "webTouchPointOpenedCondition": {
+          "title": "webTouchPointOpenedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "webTouchPointOpenedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "webTouchPointId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "linkId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "webTouchPointId",
+                "linkId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "externalCondition": {
+          "title": "externalCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "externalCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "$ref": "#/definitions/types/url"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "url"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "hasReachedMilestoneCondition": {
+          "title": "hasReachedMilestoneCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "hasReachedMilestoneCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "milestoneId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "milestoneId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "numberOfRunsCondition": {
+          "title": "numberOfRunsCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "numberOfRunsCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "runs": {
+                  "type": "integer"
+                },
+                "operator": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "$ref": "#/definitions/types/baseOperator"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "runs",
+                "operator"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "percentualSplitCondition": {
+          "title": "percentualSplitCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "percentualSplitCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "ratio": {
+                  "$ref": "#/definitions/types/ratio"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "ratio"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "workflowFinishedCondition": {
+          "title": "workflowFinishedCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "workflowFinishedCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "workflowId": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "workflowId",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        }
+      },
+      "endPoints": {
+        "endPoint": {
+          "title": "endPoint",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "endPoint"
+            },
+            "config": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false,
+              "required": []
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta"
+          ]
+        }
+      }
+    },
+    "helpers": {
+      "postit": {
+        "title": "postit",
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/definitions/types/uuid"
+          },
+          "type": {
+            "const": "postit"
+          },
+          "config": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "title",
+              "description",
+              "color"
+            ]
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "position": {
+                "$ref": "#/definitions/meta/position"
+              },
+              "size": {
+                "type": "object",
+                "properties": {
+                  "width": {
+                    "type": "integer"
+                  },
+                  "height": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "width",
+                  "height"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "position",
+              "size"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "config",
+          "meta"
+        ]
+      },
+      "referenceObject": {
+        "title": "referenceObject",
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/definitions/types/uuid"
+          },
+          "type": {
+            "const": "referenceObject"
+          },
+          "config": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "resourceId": {
+                "$ref": "#/definitions/types/evalancheId"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "resourceId",
+              "title",
+              "description"
+            ]
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "position": {
+                "$ref": "#/definitions/meta/position"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "position"
+            ]
+          },
+          "connections": {
+            "type": "object",
+            "properties": {
+              "top": {
+                "$ref": "#/definitions/meta/referenceConnectionContainer"
+              },
+              "right": {
+                "$ref": "#/definitions/meta/referenceConnectionContainer"
+              },
+              "bottom": {
+                "$ref": "#/definitions/meta/referenceConnectionContainer"
+              },
+              "left": {
+                "$ref": "#/definitions/meta/referenceConnectionContainer"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "config",
+          "meta",
+          "connections"
+        ]
+      }
+    },
+    "meta": {
+      "node": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "$ref": "#/definitions/meta/position"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "position"
+        ]
+      },
+      "position": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "integer"
+          },
+          "y": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "additionalProperties": false
+      },
+      "referenceConnectionContainer": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "targetType": {
+              "enum": [
+                "referenceObject",
+                "node"
+              ]
+            },
+            "targetId": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "targetDirection": {
+              "enum": [
+                "top",
+                "right",
+                "bottom",
+                "left"
+              ]
+            }
+          },
+          "required": [
+            "targetId",
+            "targetType",
+            "targetDirection"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "referenceConnection": {
+        "properties": {
+          "targetId": {
+            "$ref": "#/definitions/types/uuid"
+          },
+          "direction": {
+            "enum": [
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "targetId",
+          "direction"
+        ]
+      }
+    },
+    "types": {
+      "uuid": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "evalancheId": {
+        "oneOf": [
+          {
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "multipass": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "const": true
+              },
+              "lockDuration": {
+                "$ref": "#/definitions/types/duration"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "enabled",
+              "lockDuration"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "description": "This needs to be an enum, const:false does not work with type-generator",
+                "enum": [
+                  false
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "enabled"
+            ]
+          }
+        ]
+      },
+      "duration": {
+        "description": "subset of a iso 8601 duration, only days and hours are allowed",
+        "type": "string",
+        "pattern": "^P\\d+DT\\d+H$"
+      },
+      "dateTime": {
+        "type": "string",
+        "format": "dateTime"
+      },
+      "time": {
+        "type": "string",
+        "format": "time"
+      },
+      "wait": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "duration"
+              },
+              "value": {
+                "$ref": "#/definitions/types/duration"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "dateTime"
+              },
+              "value": {
+                "$ref": "#/definitions/types/dateTime"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "weekdaysAndTime"
+              },
+              "value": {
+                "$ref": "#/definitions/types/weekdaysAndTime"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "since": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "beginning"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "duration"
+              },
+              "value": {
+                "$ref": "#/definitions/types/duration"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "dateTime"
+              },
+              "value": {
+                "$ref": "#/definitions/types/dateTime"
+              }
+            },
+            "required": [
+              "type",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "weekdaysAndTime": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "mon",
+                "tue",
+                "wed",
+                "thu",
+                "fri",
+                "sat",
+                "sun"
+              ]
+            }
+          },
+          "time": {
+            "type": "string",
+            "format": "time"
+          }
+        },
+        "required": [
+          "days",
+          "time"
+        ],
+        "additionalProperties": false
+      },
+      "baseOperator": {
+        "enum": [
+          "equal",
+          "lessThan",
+          "lessThanOrEqual",
+          "greaterThan",
+          "greaterThanOrEqual"
+        ]
+      },
+      "extendedOperator": {
+        "enum": [
+          "notEqual",
+          "contains",
+          "endsWith",
+          "is",
+          "isNot",
+          "containsNot",
+          "containsAny",
+          "containsNotAny",
+          "sameDay",
+          "isExactly",
+          "sameMonth",
+          "equalsInet"
+        ]
+      },
+      "radius": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "url": {
+        "type": "string",
+        "format": "iri"
+      },
+      "ratio": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+    "connections": {
+      "singleOutput": {
+        "type": "object",
+        "properties": {
+          "true": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/types/uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "true"
+        ],
+        "additionalProperties": false
+      },
+      "doubleOutput": {
+        "type": "object",
+        "properties": {
+          "true": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/types/uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "false": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/types/uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "true",
+          "false"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}
