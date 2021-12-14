@@ -31,6 +31,9 @@
             "$ref": "#/definitions/nodes/starts/passiveStart"
           },
           {
+            "$ref": "#/definitions/nodes/starts/webTouchPointStart"
+          },
+          {
             "$ref": "#/definitions/nodes/actions/copyToWorkflowAction"
           },
           {
@@ -424,6 +427,63 @@
               },
               "additionalProperties": false,
               "required": [
+                "multipass"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "webTouchPointStart": {
+          "title": "webTouchPointStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "webTouchPointStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "webTouchPointId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "linkId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                },
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "webTouchPointId",
+                "linkId",
+                "startTime",
                 "multipass"
               ]
             },
