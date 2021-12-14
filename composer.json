@@ -1,0 +1,7 @@
+{
+    "name": "scn/campaign-schema",
+    "description": "JSON Schema Definitions for Evalanche Campaigns",
+    "type": "library",
+    "license": "proprietary",
+    "require": {}
+}
