@@ -3,5 +3,9 @@
     "description": "JSON Schema Definitions for Evalanche Campaigns",
     "type": "library",
     "license": "proprietary",
-    "require": {}
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.1.x-dev"
+        }
+    }
 }
