@@ -61,6 +61,9 @@
             "$ref": "#/definitions/nodes/actions/triggerWebhookAction"
           },
           {
+            "$ref": "#/definitions/nodes/actions/sendShortMessageAction"
+          },
+          {
             "$ref": "#/definitions/nodes/conditions/dateTimeCondition"
           },
           {
@@ -880,6 +883,48 @@
               "additionalProperties": false,
               "required": [
                 "webhookId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "sendShortMessageAction": {
+          "title": "sendShortMessageAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "sendShortMessageAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "shortMessageId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "ignorePermission": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "shortMessageId",
+                "ignorePermission"
               ]
             },
             "meta": {
