@@ -58,6 +58,9 @@
             "$ref": "#/definitions/nodes/actions/setMilestoneAction"
           },
           {
+            "$ref": "#/definitions/nodes/actions/triggerWebhookAction"
+          },
+          {
             "$ref": "#/definitions/nodes/conditions/dateTimeCondition"
           },
           {
@@ -839,6 +842,44 @@
               "additionalProperties": false,
               "required": [
                 "milestoneId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "triggerWebhookAction": {
+          "title": "triggerWebhookAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "triggerWebhookAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "webhookId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "webhookId"
               ]
             },
             "meta": {
