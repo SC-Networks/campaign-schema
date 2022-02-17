@@ -612,10 +612,8 @@
                 },
                 "recipients": {
                   "type": "array",
-                  "uniqueItems": true,
                   "items": {
-                    "type": "string",
-                    "format": "email"
+                    "type": "string"
                   }
                 }
               },
@@ -2342,8 +2340,7 @@
             }
           },
           "time": {
-            "type": "string",
-            "format": "time"
+            "$ref": "#/definitions/types/time"
           }
         },
         "required": [
@@ -2383,8 +2380,7 @@
         "maximum": 100
       },
       "url": {
-        "type": "string",
-        "format": "iri"
+        "type": "string"
       },
       "ratio": {
         "type": "integer",
