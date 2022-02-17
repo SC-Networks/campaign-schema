@@ -1,0 +1,18 @@
+{
+    "name": "@scn/campaign-schema",
+    "version": "0.0.0-semantically-released",
+    "scripts": {
+        "postinstall": "json2ts schema.json > schema.json.d.ts && echo \"\ndeclare var schema:\" >> schema.json.d.ts && cat schema.json >> schema.json.d.ts && echo \"\n\nexport default schema;\" >> schema.json.d.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SC-Networks/campaign-schema.git"
+    },
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/SC-Networks/campaign-schema/issues"
+    },
+    "dependencies": {
+        "json-schema-to-typescript": "^10.1.5"
+    }
+}
