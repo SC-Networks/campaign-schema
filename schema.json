@@ -34,6 +34,9 @@
             "$ref": "#/definitions/nodes/starts/webTouchPointStart"
           },
           {
+            "$ref": "#/definitions/nodes/starts/permissionStart"
+          },
+          {
             "$ref": "#/definitions/nodes/actions/copyToWorkflowAction"
           },
           {
@@ -491,6 +494,73 @@
                 "linkId",
                 "startTime",
                 "multipass"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "permissionStart": {
+          "title": "permissionStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "permissionStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "permission": {
+                  "oneOf": [
+                    {
+                      "enum": [
+                        "confirmed",
+                        "unsubscribed"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "poolId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                },
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "permission",
+                "poolId",
+                "multipass",
+                "startTime"
               ]
             },
             "meta": {
