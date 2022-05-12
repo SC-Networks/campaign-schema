@@ -526,12 +526,10 @@
               "type": "object",
               "properties": {
                 "permission": {
-                  "type": {
-                    "enum": [
-                      "confirmed",
-                      "unsubscribed"
-                    ]
-                  }
+                  "enum": [
+                    "confirmed",
+                    "unsubscribed"
+                  ]
                 },
                 "poolId": {
                   "$ref": "#/definitions/types/evalancheId"
