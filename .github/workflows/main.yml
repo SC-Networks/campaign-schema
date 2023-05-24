@@ -1,0 +1,10 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Validate-Json-Schema:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v3
+        with:
+          file: 'schema.json'
