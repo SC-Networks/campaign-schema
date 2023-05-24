@@ -43,6 +43,15 @@
             "$ref": "#/definitions/nodes/actions/delayAction"
           },
           {
+            "$ref": "#/definitions/nodes/actions/countAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/goalAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/trendAction"
+          },
+          {
             "$ref": "#/definitions/nodes/actions/notificationMailingAction"
           },
           {
@@ -639,6 +648,176 @@
               "additionalProperties": false,
               "required": [
                 "wait"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "countAction": {
+          "title": "countAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "countAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "date": {
+                  "$ref": "#/definitions/types/dateTime"
+                },
+                "color": {
+                  "enum": ["default", "red", "green"]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "date",
+                "color"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "goalAction": {
+          "title": "goalAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "goalAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "period": {
+                  "oneOf": [
+                    {
+                      "type": "date",
+                      "value": {
+                        "$ref": "#/definitions/types/dateTime"
+                      }
+                    },
+                    {
+                      "type": "days",
+                      "value": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    }
+                  ]
+                },
+                "goal": {
+                  "oneOf": [
+                    {
+                      "type": "absolute",
+                      "value": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    },
+                    {
+                      "type": "dynamic",
+                      "value": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100
+                      }
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "period",
+                "goal"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "trendAction": {
+          "title": "trendAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "trendAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "period": {
+                  "enum": [
+                    "30days",
+                    "6months"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "period"
               ]
             },
             "meta": {
