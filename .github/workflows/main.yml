@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Validate schema.json
 on: [push]
 jobs:
   Validate-Json-Schema:
