@@ -1,11 +1,26 @@
-name: Validate schema.json
+name: Validate json files
 on: [push]
 jobs:
-  Validate-Json-Schema:
+  validate-node-config-schema:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Validate schema.json
-        uses: cardinalby/schema-validator-action@v3
+      - uses: cardinalby/schema-validator-action@v3
+        with:
+          file: 'meta/nodes.schema.json'
+  validate-generated-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cardinalby/schema-validator-action@v3
         with:
           file: 'schema.json'
+  validate-node-configs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cardinalby/schema-validator-action@v3
+        with:
+          schema: 'meta/nodes.schema.json'
+          file: 'meta/nodes/*.json'
+          
