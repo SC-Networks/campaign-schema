@@ -1,0 +1,19 @@
+{
+    "name": "countIndicator",
+    "category": "indicators",
+    "config": {
+        "name": {
+            "type": "string"
+        },
+        "startDate": {
+            "$ref": "#/definitions/types/dateTime"
+        },
+        "rating": {
+            "enum": [
+                "neutral",
+                "positive",
+                "negative"
+            ]
+        }
+    }
+}

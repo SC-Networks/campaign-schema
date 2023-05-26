@@ -19,6 +19,9 @@
             "$ref": "#/definitions/nodes/actions/copyToWorkflowAction"
           },
           {
+            "$ref": "#/definitions/nodes/indicators/countIndicator"
+          },
+          {
             "$ref": "#/definitions/nodes/conditions/dateTimeCondition"
           },
           {
@@ -1556,6 +1559,58 @@
             "type",
             "config",
             "meta"
+          ]
+        }
+      },
+      "indicators": {
+        "countIndicator": {
+          "title": "countIndicator",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "countIndicator"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "startDate": {
+                  "$ref": "#/definitions/types/dateTime"
+                },
+                "rating": {
+                  "enum": [
+                    "neutral",
+                    "positive",
+                    "negative"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "rating",
+                "startDate"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
           ]
         }
       },
