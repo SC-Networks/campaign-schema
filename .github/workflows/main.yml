@@ -1,7 +1,8 @@
-name: Validate json files
+name: checks
 on: [push]
 jobs:
   validate-node-config-schema:
+    name: validate json schema for node configs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -9,6 +10,7 @@ jobs:
         with:
           file: 'meta/nodes.schema.json'
   validate-generated-schema:
+    name: validate generated schema.json
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,6 +18,7 @@ jobs:
         with:
           file: 'schema.json'
   validate-node-configs:
+    name: validate node configs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,4 +26,3 @@ jobs:
         with:
           schema: 'meta/nodes.schema.json'
           file: 'meta/nodes/*.json'
-          
