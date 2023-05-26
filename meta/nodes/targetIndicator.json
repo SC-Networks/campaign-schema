@@ -10,7 +10,9 @@
                 {
                     "type": "object",
                     "properties": {
-                        "type": "date",
+                        "type": {
+                            "const": "date"
+                        },
                         "value": {
                             "$ref": "#/definitions/types/dateTime"
                         }
@@ -19,11 +21,32 @@
                 {
                     "type": "object",
                     "properties": {
-                        "type": "days",
+                        "type": {
+                            "const": "days"
+                        },
                         "value": {
                             "type": "integer",
                             "minimum": 1
                         }
+                    }
+                }
+            ]
+        },
+        "target": {
+            "oneOf": [
+                {
+                    "type": "absolute",
+                    "value": {
+                        "type": "integer",
+                        "minimum": 1
+                    }
+                },
+                {
+                    "type": "dynamic",
+                    "value": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100
                     }
                 }
             ]
