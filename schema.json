@@ -118,6 +118,9 @@
             "$ref": "#/definitions/nodes/starts/targetGroupStart"
           },
           {
+            "$ref": "#/definitions/nodes/indicators/trendIndicator"
+          },
+          {
             "$ref": "#/definitions/nodes/actions/triggerWebhookAction"
           },
           {
@@ -1595,6 +1598,51 @@
                 "name",
                 "rating",
                 "startDate"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "trendIndicator": {
+          "title": "trendIndicator",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "trendIndicator"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "period": {
+                  "enum": [
+                    "30days",
+                    "6months"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "period"
               ]
             },
             "meta": {

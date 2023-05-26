@@ -1,0 +1,15 @@
+{
+    "name": "trendIndicator",
+    "category": "indicators",
+    "config": {
+        "name": {
+            "type": "string"
+        },
+        "period": {
+            "enum": [
+                "30days",
+                "6months"
+            ]
+        }
+    }
+}
