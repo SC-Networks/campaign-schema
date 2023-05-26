@@ -1,0 +1,44 @@
+{
+    "name": "targetIndicator",
+    "category": "indicators",
+    "config": {
+        "name": {
+            "type": "string"
+        },
+        "startDate": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": "date",
+                        "value": {
+                            "$ref": "#/definitions/types/dateTime"
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": "days",
+                        "value": {
+                            "type": "integer",
+                            "minimum": 1
+                        }
+                    }
+                }
+            ]
+        },
+        "rating": {
+            "enum": [
+                "positive",
+                "negative"
+            ]
+        },
+        "display": {
+            "enum": [
+                "absolute",
+                "percentage"
+            ]
+        }
+    }
+}
