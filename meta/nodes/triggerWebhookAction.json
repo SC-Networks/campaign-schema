@@ -1,0 +1,9 @@
+{
+    "name": "triggerWebhookAction",
+    "category": "actions",
+    "config": {
+        "webhookId": {
+            "$ref": "#/definitions/types/evalancheId"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "smartLinkLinkClickedCondition",
+    "category": "conditions",
+    "config": {
+        "smartLinkId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "linkId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "targetId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "since": {
+            "$ref": "#/definitions/types/since"
+        },
+        "waitFor": {
+            "$ref": "#/definitions/types/duration"
+        }
+    }
+}

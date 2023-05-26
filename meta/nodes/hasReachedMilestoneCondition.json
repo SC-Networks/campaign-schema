@@ -1,0 +1,15 @@
+{
+    "name": "hasReachedMilestoneCondition",
+    "category": "conditions",
+    "config": {
+        "milestoneId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "since": {
+            "$ref": "#/definitions/types/since"
+        },
+        "waitFor": {
+            "$ref": "#/definitions/types/duration"
+        }
+    }
+}

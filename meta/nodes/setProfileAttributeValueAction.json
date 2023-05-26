@@ -1,0 +1,21 @@
+{
+    "name": "setProfileAttributeValueAction",
+    "category": "actions",
+    "config": {
+        "poolId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "poolAttributeId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "poolAttributeValue": {
+            "type": "string"
+        },
+        "updateModificationTime": {
+            "type": "boolean"
+        },
+        "mergeMultipleSelectionField": {
+            "type": "boolean"
+        }
+    }
+}

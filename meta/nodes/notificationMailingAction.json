@@ -1,0 +1,15 @@
+{
+    "name": "notificationMailingAction",
+    "category": "actions",
+    "config": {
+        "mailingId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "recipients": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

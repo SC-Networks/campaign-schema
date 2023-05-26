@@ -1,0 +1,19 @@
+{
+    "name": "workflowFinishedCondition",
+    "category": "conditions",
+    "config": {
+        "workflowId": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/types/uuid"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "waitFor": {
+            "$ref": "#/definitions/types/duration"
+        }
+    }
+}

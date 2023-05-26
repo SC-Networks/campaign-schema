@@ -1,0 +1,29 @@
+{
+    "name": "profileInRadiusOfLocationCondition",
+    "category": "conditions",
+    "config": {
+        "position": {
+            "type": "object",
+            "properties": {
+                "longitude": {
+                    "type": "number",
+                    "min": -90,
+                    "max": 90
+                },
+                "latitude": {
+                    "type": "number",
+                    "min": -90,
+                    "max": 90
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "longitude",
+                "latitude"
+            ]
+        },
+        "radius": {
+            "$ref": "#/definitions/types/radius"
+        }
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "name": "scoreAccomplishedCondition",
+    "category": "conditions",
+    "config": {
+        "scoringGroupId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "scoreValue": {
+            "oneOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "enum": [
+                                "activity",
+                                "profile"
+                            ]
+                        },
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "matrix"
+                        },
+                        "value": {
+                            "$ref": "#/definitions/types/evalancheId"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ],
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "operator": {
+            "oneOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "$ref": "#/definitions/types/baseOperator"
+                },
+                {
+                    "const": "notEqual"
+                }
+            ]
+        }
+    }
+}

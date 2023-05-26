@@ -1,0 +1,9 @@
+{
+    "name": "isProfilePersonaCondition",
+    "category": "conditions",
+    "config": {
+        "personaId": {
+            "$ref": "#/definitions/types/evalancheId"
+        }
+    }
+}

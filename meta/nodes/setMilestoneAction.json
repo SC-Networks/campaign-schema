@@ -1,0 +1,9 @@
+{
+    "name": "setMilestoneAction",
+    "category": "actions",
+    "config": {
+        "milestoneId": {
+            "$ref": "#/definitions/types/evalancheId"
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "sendMailingAction",
+    "category": "actions",
+    "config": {
+        "mailingId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "ignorePermission": {
+            "type": "boolean"
+        }
+    }
+}

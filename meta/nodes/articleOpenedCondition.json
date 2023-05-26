@@ -1,0 +1,15 @@
+{
+    "name": "articleOpenedCondition",
+    "category": "conditions",
+    "config": {
+        "articleId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "since": {
+            "$ref": "#/definitions/types/since"
+        },
+        "waitFor": {
+            "$ref": "#/definitions/types/duration"
+        }
+    }
+}

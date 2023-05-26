@@ -1,0 +1,25 @@
+{
+    "name": "selectiveProfileStart",
+    "category": "starts",
+    "config": {
+        "startTime": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/types/dateTime"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "poolId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "poolAttributeId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "poolAttributeOptionId": {
+            "$ref": "#/definitions/types/evalancheId"
+        }
+    }
+}

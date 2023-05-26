@@ -1,0 +1,19 @@
+{
+    "name": "numberOfRunsCondition",
+    "category": "conditions",
+    "config": {
+        "runs": {
+            "type": "integer"
+        },
+        "operator": {
+            "oneOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "$ref": "#/definitions/types/baseOperator"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "name": "percentualSplitCondition",
+    "category": "conditions",
+    "config": {
+        "ratio": {
+            "$ref": "#/definitions/types/ratio"
+        }
+    }
+}

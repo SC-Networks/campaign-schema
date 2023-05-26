@@ -13,67 +13,31 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/definitions/nodes/starts/formStart"
-          },
-          {
-            "$ref": "#/definitions/nodes/starts/personaStart"
-          },
-          {
-            "$ref": "#/definitions/nodes/starts/selectiveProfileStart"
-          },
-          {
-            "$ref": "#/definitions/nodes/starts/targetGroupStart"
-          },
-          {
-            "$ref": "#/definitions/nodes/starts/milestoneStart"
-          },
-          {
-            "$ref": "#/definitions/nodes/starts/passiveStart"
-          },
-          {
-            "$ref": "#/definitions/nodes/starts/webTouchPointStart"
-          },
-          {
-            "$ref": "#/definitions/nodes/starts/permissionStart"
+            "$ref": "#/definitions/nodes/conditions/articleOpenedCondition"
           },
           {
             "$ref": "#/definitions/nodes/actions/copyToWorkflowAction"
           },
           {
-            "$ref": "#/definitions/nodes/actions/delayAction"
-          },
-          {
-            "$ref": "#/definitions/nodes/actions/notificationMailingAction"
-          },
-          {
-            "$ref": "#/definitions/nodes/actions/sendLetterAction"
-          },
-          {
-            "$ref": "#/definitions/nodes/actions/sendMailingAction"
-          },
-          {
-            "$ref": "#/definitions/nodes/actions/setActivityScoreAction"
-          },
-          {
-            "$ref": "#/definitions/nodes/actions/setProfileAttributeValueAction"
-          },
-          {
-            "$ref": "#/definitions/nodes/actions/setMilestoneAction"
-          },
-          {
-            "$ref": "#/definitions/nodes/actions/triggerWebhookAction"
-          },
-          {
-            "$ref": "#/definitions/nodes/actions/sendShortMessageAction"
-          },
-          {
             "$ref": "#/definitions/nodes/conditions/dateTimeCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/articleOpenedCondition"
+            "$ref": "#/definitions/nodes/actions/delayAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/endPoints/endPoint"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/externalCondition"
           },
           {
             "$ref": "#/definitions/nodes/conditions/formEntryCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/formStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/hasReachedMilestoneCondition"
           },
           {
             "$ref": "#/definitions/nodes/conditions/isProfilePersonaCondition"
@@ -94,6 +58,27 @@
             "$ref": "#/definitions/nodes/conditions/mailingReceivedCondition"
           },
           {
+            "$ref": "#/definitions/nodes/starts/milestoneStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/notificationMailingAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/numberOfRunsCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/passiveStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/conditions/percentualSplitCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/permissionStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/personaStart"
+          },
+          {
             "$ref": "#/definitions/nodes/conditions/profileAttributeTestCondition"
           },
           {
@@ -103,28 +88,43 @@
             "$ref": "#/definitions/nodes/conditions/scoreAccomplishedCondition"
           },
           {
+            "$ref": "#/definitions/nodes/starts/selectiveProfileStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/sendLetterAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/sendMailingAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/sendShortMessageAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/setActivityScoreAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/setMilestoneAction"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/setProfileAttributeValueAction"
+          },
+          {
             "$ref": "#/definitions/nodes/conditions/smartLinkLinkClickedCondition"
+          },
+          {
+            "$ref": "#/definitions/nodes/starts/targetGroupStart"
+          },
+          {
+            "$ref": "#/definitions/nodes/actions/triggerWebhookAction"
           },
           {
             "$ref": "#/definitions/nodes/conditions/webTouchPointOpenedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/externalCondition"
-          },
-          {
-            "$ref": "#/definitions/nodes/conditions/hasReachedMilestoneCondition"
-          },
-          {
-            "$ref": "#/definitions/nodes/conditions/numberOfRunsCondition"
-          },
-          {
-            "$ref": "#/definitions/nodes/conditions/percentualSplitCondition"
+            "$ref": "#/definitions/nodes/starts/webTouchPointStart"
           },
           {
             "$ref": "#/definitions/nodes/conditions/workflowFinishedCondition"
-          },
-          {
-            "$ref": "#/definitions/nodes/endPoints/endPoint"
           }
         ]
       }
@@ -151,428 +151,6 @@
   ],
   "definitions": {
     "nodes": {
-      "starts": {
-        "formStart": {
-          "title": "formStart",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "formStart"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "startTime": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/types/dateTime"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "formId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "multipass": {
-                  "$ref": "#/definitions/types/multipass"
-                },
-                "handleUpdates": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "startTime",
-                "formId",
-                "multipass",
-                "handleUpdates"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "personaStart": {
-          "title": "personaStart",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "personaStart"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "startTime": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/types/dateTime"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "personaId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "startTime",
-                "personaId"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "selectiveProfileStart": {
-          "title": "selectiveProfileStart",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "selectiveProfileStart"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "startTime": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/types/dateTime"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "poolId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "poolAttributeId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "poolAttributeOptionId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "startTime",
-                "poolId",
-                "poolAttributeId",
-                "poolAttributeOptionId"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "targetGroupStart": {
-          "title": "targetGroupStart",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "targetGroupStart"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "startTime": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/types/dateTime"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "targetGroupId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "multipass": {
-                  "$ref": "#/definitions/types/multipass"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "startTime",
-                "targetGroupId",
-                "multipass"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "milestoneStart": {
-          "title": "milestoneStart",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "milestoneStart"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "startTime": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/types/dateTime"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                },
-                "milestoneId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "startTime",
-                "milestoneId"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "passiveStart": {
-          "title": "passiveStart",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "passiveStart"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "multipass": {
-                  "$ref": "#/definitions/types/multipass"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "multipass"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "webTouchPointStart": {
-          "title": "webTouchPointStart",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "webTouchPointStart"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "webTouchPointId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "linkId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "multipass": {
-                  "$ref": "#/definitions/types/multipass"
-                },
-                "startTime": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/types/dateTime"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "webTouchPointId",
-                "linkId",
-                "startTime",
-                "multipass"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "permissionStart": {
-          "title": "permissionStart",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "permissionStart"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "permission": {
-                  "enum": [
-                    "confirmed",
-                    "unsubscribed"
-                  ]
-                },
-                "poolId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "multipass": {
-                  "$ref": "#/definitions/types/multipass"
-                },
-                "startTime": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/types/dateTime"
-                    },
-                    {
-                      "type": "null"
-                    }
-                  ]
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "permission",
-                "poolId",
-                "multipass",
-                "startTime"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        }
-      },
       "actions": {
         "copyToWorkflowAction": {
           "title": "copyToWorkflowAction",
@@ -724,8 +302,8 @@
               },
               "additionalProperties": false,
               "required": [
-                "letterId",
-                "ignorePermission"
+                "ignorePermission",
+                "letterId"
               ]
             },
             "meta": {
@@ -766,8 +344,50 @@
               },
               "additionalProperties": false,
               "required": [
-                "mailingId",
-                "ignorePermission"
+                "ignorePermission",
+                "mailingId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "sendShortMessageAction": {
+          "title": "sendShortMessageAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "sendShortMessageAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "shortMessageId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "ignorePermission": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "ignorePermission",
+                "shortMessageId"
               ]
             },
             "meta": {
@@ -811,63 +431,9 @@
               },
               "additionalProperties": false,
               "required": [
-                "scoringGroupId",
+                "scoreDescription",
                 "scoreValue",
-                "scoreDescription"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "setProfileAttributeValueAction": {
-          "title": "setProfileAttributeValueAction",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "setProfileAttributeValueAction"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "poolId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "poolAttributeId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "poolAttributeValue": {
-                  "type": "string"
-                },
-                "updateModificationTime": {
-                  "type": "boolean"
-                },
-                "mergeMultipleSelectionField": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "poolId",
-                "poolAttributeId",
-                "poolAttributeValue",
-                "updateModificationTime",
-                "mergeMultipleSelectionField"
+                "scoringGroupId"
               ]
             },
             "meta": {
@@ -924,6 +490,60 @@
             "connections"
           ]
         },
+        "setProfileAttributeValueAction": {
+          "title": "setProfileAttributeValueAction",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "setProfileAttributeValueAction"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "poolId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeValue": {
+                  "type": "string"
+                },
+                "updateModificationTime": {
+                  "type": "boolean"
+                },
+                "mergeMultipleSelectionField": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "mergeMultipleSelectionField",
+                "poolAttributeId",
+                "poolAttributeValue",
+                "poolId",
+                "updateModificationTime"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
         "triggerWebhookAction": {
           "title": "triggerWebhookAction",
           "type": "object",
@@ -961,97 +581,9 @@
             "meta",
             "connections"
           ]
-        },
-        "sendShortMessageAction": {
-          "title": "sendShortMessageAction",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "sendShortMessageAction"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "shortMessageId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "ignorePermission": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "shortMessageId",
-                "ignorePermission"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
         }
       },
       "conditions": {
-        "dateTimeCondition": {
-          "title": "dateTimeCondition",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "dateTimeCondition"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "dateTime": {
-                  "$ref": "#/definitions/types/dateTime"
-                },
-                "operator": {
-                  "enum": [
-                    null,
-                    "before",
-                    "after"
-                  ]
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "dateTime",
-                "operator"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
         "articleOpenedCondition": {
           "title": "articleOpenedCondition",
           "type": "object",
@@ -1098,6 +630,90 @@
             "connections"
           ]
         },
+        "dateTimeCondition": {
+          "title": "dateTimeCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "dateTimeCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "dateTime": {
+                  "$ref": "#/definitions/types/dateTime"
+                },
+                "operator": {
+                  "enum": [
+                    null,
+                    "before",
+                    "after"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "dateTime",
+                "operator"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "externalCondition": {
+          "title": "externalCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "externalCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "$ref": "#/definitions/types/url"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "url"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
         "formEntryCondition": {
           "title": "formEntryCondition",
           "type": "object",
@@ -1124,6 +740,52 @@
               "additionalProperties": false,
               "required": [
                 "formId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "hasReachedMilestoneCondition": {
+          "title": "hasReachedMilestoneCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "hasReachedMilestoneCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "milestoneId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "since": {
+                  "$ref": "#/definitions/types/since"
+                },
+                "waitFor": {
+                  "$ref": "#/definitions/types/duration"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "milestoneId",
                 "since",
                 "waitFor"
               ]
@@ -1412,6 +1074,93 @@
             "connections"
           ]
         },
+        "numberOfRunsCondition": {
+          "title": "numberOfRunsCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "numberOfRunsCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "runs": {
+                  "type": "integer"
+                },
+                "operator": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "$ref": "#/definitions/types/baseOperator"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "operator",
+                "runs"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "percentualSplitCondition": {
+          "title": "percentualSplitCondition",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "percentualSplitCondition"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "ratio": {
+                  "$ref": "#/definitions/types/ratio"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "ratio"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/doubleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
         "profileAttributeTestCondition": {
           "title": "profileAttributeTestCondition",
           "type": "object",
@@ -1450,10 +1199,10 @@
               },
               "additionalProperties": false,
               "required": [
-                "poolId",
+                "operator",
                 "poolAttributeId",
                 "poolAttributeValue",
-                "operator"
+                "poolId"
               ]
             },
             "meta": {
@@ -1605,9 +1354,9 @@
               },
               "additionalProperties": false,
               "required": [
-                "scoringGroupId",
+                "operator",
                 "scoreValue",
-                "operator"
+                "scoringGroupId"
               ]
             },
             "meta": {
@@ -1657,10 +1406,10 @@
               },
               "additionalProperties": false,
               "required": [
-                "smartLinkId",
                 "linkId",
-                "targetId",
                 "since",
+                "smartLinkId",
+                "targetId",
                 "waitFor"
               ]
             },
@@ -1708,181 +1457,10 @@
               },
               "additionalProperties": false,
               "required": [
-                "webTouchPointId",
                 "linkId",
                 "since",
-                "waitFor"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "externalCondition": {
-          "title": "externalCondition",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "externalCondition"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "$ref": "#/definitions/types/url"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "url"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "hasReachedMilestoneCondition": {
-          "title": "hasReachedMilestoneCondition",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "hasReachedMilestoneCondition"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "milestoneId": {
-                  "$ref": "#/definitions/types/evalancheId"
-                },
-                "since": {
-                  "$ref": "#/definitions/types/since"
-                },
-                "waitFor": {
-                  "$ref": "#/definitions/types/duration"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "milestoneId",
-                "since",
-                "waitFor"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "numberOfRunsCondition": {
-          "title": "numberOfRunsCondition",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "numberOfRunsCondition"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "runs": {
-                  "type": "integer"
-                },
-                "operator": {
-                  "oneOf": [
-                    {
-                      "type": "null"
-                    },
-                    {
-                      "$ref": "#/definitions/types/baseOperator"
-                    }
-                  ]
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "runs",
-                "operator"
-              ]
-            },
-            "meta": {
-              "$ref": "#/definitions/meta/node"
-            },
-            "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "type",
-            "config",
-            "meta",
-            "connections"
-          ]
-        },
-        "percentualSplitCondition": {
-          "title": "percentualSplitCondition",
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/types/uuid"
-            },
-            "type": {
-              "const": "percentualSplitCondition"
-            },
-            "config": {
-              "type": "object",
-              "properties": {
-                "ratio": {
-                  "$ref": "#/definitions/types/ratio"
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "ratio"
+                "waitFor",
+                "webTouchPointId"
               ]
             },
             "meta": {
@@ -1930,8 +1508,8 @@
               },
               "additionalProperties": false,
               "required": [
-                "workflowId",
-                "waitFor"
+                "waitFor",
+                "workflowId"
               ]
             },
             "meta": {
@@ -1978,6 +1556,428 @@
             "type",
             "config",
             "meta"
+          ]
+        }
+      },
+      "starts": {
+        "formStart": {
+          "title": "formStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "formStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "formId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                },
+                "handleUpdates": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "formId",
+                "handleUpdates",
+                "multipass",
+                "startTime"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "milestoneStart": {
+          "title": "milestoneStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "milestoneStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "milestoneId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "milestoneId",
+                "startTime"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "passiveStart": {
+          "title": "passiveStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "passiveStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "multipass"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "permissionStart": {
+          "title": "permissionStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "permissionStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "permission": {
+                  "enum": [
+                    "confirmed",
+                    "unsubscribed"
+                  ]
+                },
+                "poolId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                },
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "multipass",
+                "permission",
+                "poolId",
+                "startTime"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "personaStart": {
+          "title": "personaStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "personaStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "personaId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "personaId",
+                "startTime"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "selectiveProfileStart": {
+          "title": "selectiveProfileStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "selectiveProfileStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "poolId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "poolAttributeOptionId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "poolAttributeId",
+                "poolAttributeOptionId",
+                "poolId",
+                "startTime"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "targetGroupStart": {
+          "title": "targetGroupStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "targetGroupStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "targetGroupId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "multipass",
+                "startTime",
+                "targetGroupId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "webTouchPointStart": {
+          "title": "webTouchPointStart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "webTouchPointStart"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "webTouchPointId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "linkId": {
+                  "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
+                },
+                "startTime": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/types/dateTime"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "linkId",
+                "multipass",
+                "startTime",
+                "webTouchPointId"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
           ]
         }
       }

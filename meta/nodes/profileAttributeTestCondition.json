@@ -1,0 +1,28 @@
+{
+    "name": "profileAttributeTestCondition",
+    "category": "conditions",
+    "config": {
+        "poolId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "poolAttributeId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "poolAttributeValue": {
+            "type": "string"
+        },
+        "operator": {
+            "oneOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "$ref": "#/definitions/types/baseOperator"
+                },
+                {
+                    "$ref": "#/definitions/types/extendedOperator"
+                }
+            ]
+        }
+    }
+}

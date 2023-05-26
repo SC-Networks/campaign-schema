@@ -1,0 +1,9 @@
+{
+    "name": "externalCondition",
+    "category": "conditions",
+    "config": {
+        "url": {
+            "$ref": "#/definitions/types/url"
+        }
+    }
+}

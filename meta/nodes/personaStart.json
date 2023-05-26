@@ -1,0 +1,19 @@
+{
+    "name": "personaStart",
+    "category": "starts",
+    "config": {
+        "startTime": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/types/dateTime"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "personaId": {
+            "$ref": "#/definitions/types/evalancheId"
+        }
+    }
+}

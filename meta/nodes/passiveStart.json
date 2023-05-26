@@ -1,0 +1,9 @@
+{
+    "name": "passiveStart",
+    "category": "starts",
+    "config": {
+        "multipass": {
+            "$ref": "#/definitions/types/multipass"
+        }
+    }
+}

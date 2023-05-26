@@ -1,0 +1,15 @@
+{
+    "name": "mailingClickedCondition",
+    "category": "conditions",
+    "config": {
+        "emailingId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "since": {
+            "$ref": "#/definitions/types/since"
+        },
+        "waitFor": {
+            "$ref": "#/definitions/types/duration"
+        }
+    }
+}

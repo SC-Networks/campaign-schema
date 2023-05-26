@@ -1,0 +1,12 @@
+{
+    "name": "sendShortMessageAction",
+    "category": "actions",
+    "config": {
+        "shortMessageId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "ignorePermission": {
+            "type": "boolean"
+        }
+    }
+}

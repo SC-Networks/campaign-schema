@@ -1,0 +1,16 @@
+{
+    "name": "copyToWorkflowAction",
+    "category": "actions",
+    "config": {
+        "workflowId": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/types/uuid"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    }
+}

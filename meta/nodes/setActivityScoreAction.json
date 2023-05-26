@@ -1,0 +1,15 @@
+{
+    "name": "setActivityScoreAction",
+    "category": "actions",
+    "config": {
+        "scoringGroupId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "scoreValue": {
+            "type": "integer"
+        },
+        "scoreDescription": {
+            "type": "string"
+        }
+    }
+}

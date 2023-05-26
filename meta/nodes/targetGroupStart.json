@@ -1,0 +1,22 @@
+{
+    "name": "targetGroupStart",
+    "category": "starts",
+    "config": {
+        "startTime": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/types/dateTime"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "targetGroupId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "multipass": {
+            "$ref": "#/definitions/types/multipass"
+        }
+    }
+}

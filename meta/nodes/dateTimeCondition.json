@@ -1,0 +1,16 @@
+{
+    "name": "dateTimeCondition",
+    "category": "conditions",
+    "config": {
+        "dateTime": {
+            "$ref": "#/definitions/types/dateTime"
+        },
+        "operator": {
+            "enum": [
+                null,
+                "before",
+                "after"
+            ]
+        }
+    }
+}

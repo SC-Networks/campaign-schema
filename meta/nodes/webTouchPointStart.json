@@ -1,0 +1,25 @@
+{
+    "name": "webTouchPointStart",
+    "category": "starts",
+    "config": {
+        "webTouchPointId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "linkId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "multipass": {
+            "$ref": "#/definitions/types/multipass"
+        },
+        "startTime": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/types/dateTime"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "permissionStart",
+    "category": "starts",
+    "config": {
+        "permission": {
+            "enum": [
+                "confirmed",
+                "unsubscribed"
+            ]
+        },
+        "poolId": {
+            "$ref": "#/definitions/types/evalancheId"
+        },
+        "multipass": {
+            "$ref": "#/definitions/types/multipass"
+        },
+        "startTime": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/types/dateTime"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    }
+}

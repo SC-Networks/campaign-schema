@@ -1,0 +1,9 @@
+{
+    "name": "delayAction",
+    "category": "actions",
+    "config": {
+        "wait": {
+            "$ref": "#/definitions/types/wait"
+        }
+    }
+}
