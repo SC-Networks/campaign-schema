@@ -1,0 +1,67 @@
+{
+    "name": "targetIndicator",
+    "category": "indicators",
+    "config": {
+        "name": {
+            "type": "string"
+        },
+        "startDate": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "date"
+                        },
+                        "value": {
+                            "$ref": "#/definitions/types/dateTime"
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "days"
+                        },
+                        "value": {
+                            "type": "integer",
+                            "minimum": 1
+                        }
+                    }
+                }
+            ]
+        },
+        "target": {
+            "oneOf": [
+                {
+                    "type": "absolute",
+                    "value": {
+                        "type": "integer",
+                        "minimum": 1
+                    }
+                },
+                {
+                    "type": "percentage",
+                    "value": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100
+                    }
+                }
+            ]
+        },
+        "rating": {
+            "enum": [
+                "positive",
+                "negative"
+            ]
+        },
+        "display": {
+            "enum": [
+                "absolute",
+                "percentage"
+            ]
+        }
+    }
+}

@@ -118,6 +118,9 @@
             "$ref": "#/definitions/nodes/starts/targetGroupStart"
           },
           {
+            "$ref": "#/definitions/nodes/indicators/targetIndicator"
+          },
+          {
             "$ref": "#/definitions/nodes/indicators/trendIndicator"
           },
           {
@@ -1598,6 +1601,106 @@
                 "name",
                 "rating",
                 "startDate"
+              ]
+            },
+            "meta": {
+              "$ref": "#/definitions/meta/node"
+            },
+            "connections": {
+              "$ref": "#/definitions/connections/singleOutput"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "targetIndicator": {
+          "title": "targetIndicator",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/types/uuid"
+            },
+            "type": {
+              "const": "targetIndicator"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "startDate": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "const": "date"
+                        },
+                        "value": {
+                          "$ref": "#/definitions/types/dateTime"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "const": "days"
+                        },
+                        "value": {
+                          "type": "integer",
+                          "minimum": 1
+                        }
+                      }
+                    }
+                  ]
+                },
+                "target": {
+                  "oneOf": [
+                    {
+                      "type": "absolute",
+                      "value": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    },
+                    {
+                      "type": "percentage",
+                      "value": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100
+                      }
+                    }
+                  ]
+                },
+                "rating": {
+                  "enum": [
+                    "positive",
+                    "negative"
+                  ]
+                },
+                "display": {
+                  "enum": [
+                    "absolute",
+                    "percentage"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "display",
+                "name",
+                "rating",
+                "startDate",
+                "target"
               ]
             },
             "meta": {
