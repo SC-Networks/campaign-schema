@@ -35,22 +35,28 @@
         "target": {
             "oneOf": [
                 {
-                    "type": {
-                        "const": "absolute"
-                    },
-                    "value": {
-                        "type": "integer",
-                        "minimum": 1
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "absolute"
+                        },
+                        "value": {
+                            "type": "integer",
+                            "minimum": 1
+                        }
                     }
                 },
                 {
-                    "type": {
-                        "const": "percentage"
-                    },
-                    "value": {
-                        "type": "integer",
-                        "minimum": 1,
-                        "maximum": 100
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "percentage"
+                        },
+                        "value": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 100
+                        }
                     }
                 }
             ]
