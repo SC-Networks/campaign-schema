@@ -1646,7 +1646,12 @@
                         "value": {
                           "$ref": "#/definitions/types/dateTime"
                         }
-                      }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "type",
+                        "value"
+                      ]
                     },
                     {
                       "type": "object",
@@ -1658,7 +1663,12 @@
                           "type": "integer",
                           "minimum": 1
                         }
-                      }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "type",
+                        "value"
+                      ]
                     }
                   ]
                 },
@@ -1674,7 +1684,12 @@
                           "type": "integer",
                           "minimum": 1
                         }
-                      }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "type",
+                        "value"
+                      ]
                     },
                     {
                       "type": "object",
@@ -1687,7 +1702,12 @@
                           "minimum": 1,
                           "maximum": 100
                         }
-                      }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "type",
+                        "value"
+                      ]
                     }
                   ]
                 },
