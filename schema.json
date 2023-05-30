@@ -1665,14 +1665,18 @@
                 "target": {
                   "oneOf": [
                     {
-                      "type": "absolute",
+                      "type": {
+                        "const": "absolute"
+                      },
                       "value": {
                         "type": "integer",
                         "minimum": 1
                       }
                     },
                     {
-                      "type": "percentage",
+                      "type": {
+                        "const": "percentage"
+                      },
                       "value": {
                         "type": "integer",
                         "minimum": 1,
