@@ -1583,7 +1583,8 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 "startDate": {
                   "$ref": "#/definitions/types/dateTime"
@@ -1633,7 +1634,8 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 "startDate": {
                   "oneOf": [
@@ -1763,7 +1765,8 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 "period": {
                   "enum": [

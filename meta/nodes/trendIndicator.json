@@ -3,7 +3,8 @@
     "category": "indicators",
     "config": {
         "name": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "period": {
             "enum": [
