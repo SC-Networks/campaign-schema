@@ -3,8 +3,7 @@
     "category": "indicators",
     "config": {
         "name": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
         },
         "startDate": {
             "oneOf": [
