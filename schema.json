@@ -1,139 +1,139 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "schema.json",
-  "title": "SCN Workflow Config v3",
-  "description": "Validates a given workflow config v3",
+  "title": "SCN Workflow Config v4",
+  "description": "Validates a given workflow config v4",
   "type": "object",
   "properties": {
-    "configuration-version": {
-      "const": "3"
+    "configFormat": {
+      "const": "4"
     },
     "nodes": {
       "type": "array",
       "items": {
         "anyOf": [
           {
-            "$ref": "#/definitions/nodes/conditions/articleOpenedCondition"
+            "$ref": "#/$defs/nodes/conditions/articleOpenedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/actions/copyToWorkflowAction"
+            "$ref": "#/$defs/nodes/actions/copyToWorkflowAction"
           },
           {
-            "$ref": "#/definitions/nodes/indicators/countIndicator"
+            "$ref": "#/$defs/nodes/indicators/countIndicator"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/dateTimeCondition"
+            "$ref": "#/$defs/nodes/conditions/dateTimeCondition"
           },
           {
-            "$ref": "#/definitions/nodes/actions/delayAction"
+            "$ref": "#/$defs/nodes/actions/delayAction"
           },
           {
-            "$ref": "#/definitions/nodes/endPoints/endPoint"
+            "$ref": "#/$defs/nodes/endPoints/endPoint"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/externalCondition"
+            "$ref": "#/$defs/nodes/conditions/externalCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/formEntryCondition"
+            "$ref": "#/$defs/nodes/conditions/formEntryCondition"
           },
           {
-            "$ref": "#/definitions/nodes/starts/formStart"
+            "$ref": "#/$defs/nodes/starts/formStart"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/hasReachedMilestoneCondition"
+            "$ref": "#/$defs/nodes/conditions/hasReachedMilestoneCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/isProfilePersonaCondition"
+            "$ref": "#/$defs/nodes/conditions/isProfilePersonaCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/leadpageOpenedCondition"
+            "$ref": "#/$defs/nodes/conditions/leadpageOpenedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/mailingActivityCondition"
+            "$ref": "#/$defs/nodes/conditions/mailingActivityCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/mailingClickedCondition"
+            "$ref": "#/$defs/nodes/conditions/mailingClickedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/mailingOpenedCondition"
+            "$ref": "#/$defs/nodes/conditions/mailingOpenedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/mailingReceivedCondition"
+            "$ref": "#/$defs/nodes/conditions/mailingReceivedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/starts/milestoneStart"
+            "$ref": "#/$defs/nodes/starts/milestoneStart"
           },
           {
-            "$ref": "#/definitions/nodes/actions/notificationMailingAction"
+            "$ref": "#/$defs/nodes/actions/notificationMailingAction"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/numberOfRunsCondition"
+            "$ref": "#/$defs/nodes/conditions/numberOfRunsCondition"
           },
           {
-            "$ref": "#/definitions/nodes/starts/passiveStart"
+            "$ref": "#/$defs/nodes/starts/passiveStart"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/percentualSplitCondition"
+            "$ref": "#/$defs/nodes/conditions/percentualSplitCondition"
           },
           {
-            "$ref": "#/definitions/nodes/starts/permissionStart"
+            "$ref": "#/$defs/nodes/starts/permissionStart"
           },
           {
-            "$ref": "#/definitions/nodes/starts/personaStart"
+            "$ref": "#/$defs/nodes/starts/personaStart"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/profileAttributeTestCondition"
+            "$ref": "#/$defs/nodes/conditions/profileAttributeTestCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/profileInRadiusOfLocationCondition"
+            "$ref": "#/$defs/nodes/conditions/profileInRadiusOfLocationCondition"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/scoreAccomplishedCondition"
+            "$ref": "#/$defs/nodes/conditions/scoreAccomplishedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/starts/selectiveProfileStart"
+            "$ref": "#/$defs/nodes/starts/selectiveProfileStart"
           },
           {
-            "$ref": "#/definitions/nodes/actions/sendLetterAction"
+            "$ref": "#/$defs/nodes/actions/sendLetterAction"
           },
           {
-            "$ref": "#/definitions/nodes/actions/sendMailingAction"
+            "$ref": "#/$defs/nodes/actions/sendMailingAction"
           },
           {
-            "$ref": "#/definitions/nodes/actions/sendShortMessageAction"
+            "$ref": "#/$defs/nodes/actions/sendShortMessageAction"
           },
           {
-            "$ref": "#/definitions/nodes/actions/setActivityScoreAction"
+            "$ref": "#/$defs/nodes/actions/setActivityScoreAction"
           },
           {
-            "$ref": "#/definitions/nodes/actions/setMilestoneAction"
+            "$ref": "#/$defs/nodes/actions/setMilestoneAction"
           },
           {
-            "$ref": "#/definitions/nodes/actions/setProfileAttributeValueAction"
+            "$ref": "#/$defs/nodes/actions/setProfileAttributeValueAction"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/smartLinkLinkClickedCondition"
+            "$ref": "#/$defs/nodes/conditions/smartLinkLinkClickedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/starts/targetGroupStart"
+            "$ref": "#/$defs/nodes/starts/targetGroupStart"
           },
           {
-            "$ref": "#/definitions/nodes/indicators/targetIndicator"
+            "$ref": "#/$defs/nodes/indicators/targetIndicator"
           },
           {
-            "$ref": "#/definitions/nodes/indicators/trendIndicator"
+            "$ref": "#/$defs/nodes/indicators/trendIndicator"
           },
           {
-            "$ref": "#/definitions/nodes/actions/triggerWebhookAction"
+            "$ref": "#/$defs/nodes/actions/triggerWebhookAction"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/webTouchPointOpenedCondition"
+            "$ref": "#/$defs/nodes/conditions/webTouchPointOpenedCondition"
           },
           {
-            "$ref": "#/definitions/nodes/starts/webTouchPointStart"
+            "$ref": "#/$defs/nodes/starts/webTouchPointStart"
           },
           {
-            "$ref": "#/definitions/nodes/conditions/workflowFinishedCondition"
+            "$ref": "#/$defs/nodes/conditions/workflowFinishedCondition"
           }
         ]
       }
@@ -143,10 +143,10 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/definitions/helpers/postit"
+            "$ref": "#/$defs/helpers/postit"
           },
           {
-            "$ref": "#/definitions/helpers/referenceObject"
+            "$ref": "#/$defs/helpers/referenceObject"
           }
         ]
       }
@@ -154,11 +154,11 @@
   },
   "additionalProperties": false,
   "required": [
+    "configFormat",
     "nodes",
-    "helpers",
-    "configuration-version"
+    "helpers"
   ],
-  "definitions": {
+  "$defs": {
     "nodes": {
       "actions": {
         "copyToWorkflowAction": {
@@ -166,7 +166,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "copyToWorkflowAction"
@@ -177,7 +177,7 @@
                 "workflowId": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/uuid"
+                      "$ref": "#/$defs/types/uuid"
                     },
                     {
                       "type": "null"
@@ -191,10 +191,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -211,7 +211,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "delayAction"
@@ -220,7 +220,7 @@
               "type": "object",
               "properties": {
                 "wait": {
-                  "$ref": "#/definitions/types/wait"
+                  "$ref": "#/$defs/types/wait"
                 }
               },
               "additionalProperties": false,
@@ -229,10 +229,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -249,7 +249,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "notificationMailingAction"
@@ -258,7 +258,7 @@
               "type": "object",
               "properties": {
                 "mailingId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "recipients": {
                   "type": "array",
@@ -274,10 +274,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -294,7 +294,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "sendLetterAction"
@@ -303,7 +303,7 @@
               "type": "object",
               "properties": {
                 "letterId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "ignorePermission": {
                   "type": "boolean"
@@ -316,10 +316,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -336,7 +336,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "sendMailingAction"
@@ -345,7 +345,7 @@
               "type": "object",
               "properties": {
                 "mailingId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "ignorePermission": {
                   "type": "boolean"
@@ -358,10 +358,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -378,7 +378,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "sendShortMessageAction"
@@ -387,7 +387,7 @@
               "type": "object",
               "properties": {
                 "shortMessageId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "ignorePermission": {
                   "type": "boolean"
@@ -400,10 +400,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -420,7 +420,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "setActivityScoreAction"
@@ -429,7 +429,7 @@
               "type": "object",
               "properties": {
                 "scoringGroupId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "scoreValue": {
                   "type": "integer"
@@ -446,10 +446,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -466,7 +466,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "setMilestoneAction"
@@ -475,7 +475,7 @@
               "type": "object",
               "properties": {
                 "milestoneId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 }
               },
               "additionalProperties": false,
@@ -484,10 +484,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -504,7 +504,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "setProfileAttributeValueAction"
@@ -513,10 +513,10 @@
               "type": "object",
               "properties": {
                 "poolId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "poolAttributeId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "poolAttributeValue": {
                   "type": "string"
@@ -538,10 +538,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -558,7 +558,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "triggerWebhookAction"
@@ -567,7 +567,7 @@
               "type": "object",
               "properties": {
                 "webhookId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 }
               },
               "additionalProperties": false,
@@ -576,10 +576,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -598,7 +598,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "articleOpenedCondition"
@@ -607,13 +607,13 @@
               "type": "object",
               "properties": {
                 "articleId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -624,10 +624,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -644,7 +644,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "dateTimeCondition"
@@ -653,7 +653,7 @@
               "type": "object",
               "properties": {
                 "dateTime": {
-                  "$ref": "#/definitions/types/dateTime"
+                  "$ref": "#/$defs/types/dateTime"
                 },
                 "operator": {
                   "enum": [
@@ -670,10 +670,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -690,7 +690,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "externalCondition"
@@ -699,7 +699,7 @@
               "type": "object",
               "properties": {
                 "url": {
-                  "$ref": "#/definitions/types/url"
+                  "$ref": "#/$defs/types/url"
                 }
               },
               "additionalProperties": false,
@@ -708,10 +708,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -728,7 +728,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "formEntryCondition"
@@ -737,13 +737,13 @@
               "type": "object",
               "properties": {
                 "formId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -754,10 +754,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -774,7 +774,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "hasReachedMilestoneCondition"
@@ -783,13 +783,13 @@
               "type": "object",
               "properties": {
                 "milestoneId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -800,10 +800,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -820,7 +820,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "isProfilePersonaCondition"
@@ -829,7 +829,7 @@
               "type": "object",
               "properties": {
                 "personaId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 }
               },
               "additionalProperties": false,
@@ -838,10 +838,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -858,7 +858,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "leadpageOpenedCondition"
@@ -867,13 +867,13 @@
               "type": "object",
               "properties": {
                 "leadpageId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -884,10 +884,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -904,7 +904,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "mailingActivityCondition"
@@ -913,13 +913,13 @@
               "type": "object",
               "properties": {
                 "emailingId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -930,10 +930,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -950,7 +950,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "mailingClickedCondition"
@@ -959,13 +959,13 @@
               "type": "object",
               "properties": {
                 "emailingId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -976,10 +976,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -996,7 +996,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "mailingOpenedCondition"
@@ -1005,13 +1005,13 @@
               "type": "object",
               "properties": {
                 "emailingId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -1022,10 +1022,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1042,7 +1042,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "mailingReceivedCondition"
@@ -1051,13 +1051,13 @@
               "type": "object",
               "properties": {
                 "emailingId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -1068,10 +1068,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1088,7 +1088,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "numberOfRunsCondition"
@@ -1105,7 +1105,7 @@
                       "type": "null"
                     },
                     {
-                      "$ref": "#/definitions/types/baseOperator"
+                      "$ref": "#/$defs/types/baseOperator"
                     }
                   ]
                 }
@@ -1117,10 +1117,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1137,7 +1137,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "percentualSplitCondition"
@@ -1146,7 +1146,7 @@
               "type": "object",
               "properties": {
                 "ratio": {
-                  "$ref": "#/definitions/types/ratio"
+                  "$ref": "#/$defs/types/ratio"
                 }
               },
               "additionalProperties": false,
@@ -1155,10 +1155,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1175,7 +1175,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "profileAttributeTestCondition"
@@ -1184,13 +1184,49 @@
               "type": "object",
               "properties": {
                 "poolId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "poolAttributeId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "poolAttributeValue": {
-                  "type": "string"
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "const": "literal"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "type",
+                        "value"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "const": "option"
+                        },
+                        "value": {
+                          "$ref": "#/$defs/types/evalancheId"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "type",
+                        "value"
+                      ]
+                    }
+                  ]
                 },
                 "operator": {
                   "oneOf": [
@@ -1198,10 +1234,10 @@
                       "type": "null"
                     },
                     {
-                      "$ref": "#/definitions/types/baseOperator"
+                      "$ref": "#/$defs/types/baseOperator"
                     },
                     {
-                      "$ref": "#/definitions/types/extendedOperator"
+                      "$ref": "#/$defs/types/extendedOperator"
                     }
                   ]
                 }
@@ -1215,10 +1251,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1235,7 +1271,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "profileInRadiusOfLocationCondition"
@@ -1264,7 +1300,7 @@
                   ]
                 },
                 "radius": {
-                  "$ref": "#/definitions/types/radius"
+                  "$ref": "#/$defs/types/radius"
                 }
               },
               "additionalProperties": false,
@@ -1274,10 +1310,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1294,7 +1330,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "scoreAccomplishedCondition"
@@ -1303,7 +1339,7 @@
               "type": "object",
               "properties": {
                 "scoringGroupId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "scoreValue": {
                   "oneOf": [
@@ -1336,7 +1372,7 @@
                           "const": "matrix"
                         },
                         "value": {
-                          "$ref": "#/definitions/types/evalancheId"
+                          "$ref": "#/$defs/types/evalancheId"
                         }
                       },
                       "required": [
@@ -1353,7 +1389,7 @@
                       "type": "null"
                     },
                     {
-                      "$ref": "#/definitions/types/baseOperator"
+                      "$ref": "#/$defs/types/baseOperator"
                     },
                     {
                       "const": "notEqual"
@@ -1369,10 +1405,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1389,7 +1425,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "smartLinkLinkClickedCondition"
@@ -1398,19 +1434,19 @@
               "type": "object",
               "properties": {
                 "smartLinkId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "linkId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "targetId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -1423,10 +1459,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1443,7 +1479,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "webTouchPointOpenedCondition"
@@ -1452,16 +1488,16 @@
               "type": "object",
               "properties": {
                 "webTouchPointId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "linkId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "since": {
-                  "$ref": "#/definitions/types/since"
+                  "$ref": "#/$defs/types/since"
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -1473,10 +1509,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1493,7 +1529,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "workflowFinishedCondition"
@@ -1504,7 +1540,7 @@
                 "workflowId": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/uuid"
+                      "$ref": "#/$defs/types/uuid"
                     },
                     {
                       "type": "null"
@@ -1512,7 +1548,7 @@
                   ]
                 },
                 "waitFor": {
-                  "$ref": "#/definitions/types/duration"
+                  "$ref": "#/$defs/types/duration"
                 }
               },
               "additionalProperties": false,
@@ -1522,10 +1558,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/doubleOutput"
+              "$ref": "#/$defs/connections/doubleOutput"
             }
           },
           "additionalProperties": false,
@@ -1544,7 +1580,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "endPoint"
@@ -1556,7 +1592,7 @@
               "required": []
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             }
           },
           "additionalProperties": false,
@@ -1574,7 +1610,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "countIndicator"
@@ -1586,7 +1622,7 @@
                   "type": "string"
                 },
                 "startDate": {
-                  "$ref": "#/definitions/types/dateTime"
+                  "$ref": "#/$defs/types/dateTime"
                 },
                 "rating": {
                   "enum": [
@@ -1604,10 +1640,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -1624,7 +1660,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "targetIndicator"
@@ -1644,7 +1680,7 @@
                           "const": "date"
                         },
                         "value": {
-                          "$ref": "#/definitions/types/dateTime"
+                          "$ref": "#/$defs/types/dateTime"
                         }
                       },
                       "additionalProperties": false,
@@ -1734,10 +1770,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -1754,7 +1790,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "trendIndicator"
@@ -1779,10 +1815,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -1801,7 +1837,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "formStart"
@@ -1812,7 +1848,7 @@
                 "startTime": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/dateTime"
+                      "$ref": "#/$defs/types/dateTime"
                     },
                     {
                       "type": "null"
@@ -1820,10 +1856,10 @@
                   ]
                 },
                 "formId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "multipass": {
-                  "$ref": "#/definitions/types/multipass"
+                  "$ref": "#/$defs/types/multipass"
                 },
                 "handleUpdates": {
                   "type": "boolean"
@@ -1838,10 +1874,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -1858,7 +1894,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "milestoneStart"
@@ -1869,7 +1905,7 @@
                 "startTime": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/dateTime"
+                      "$ref": "#/$defs/types/dateTime"
                     },
                     {
                       "type": "null"
@@ -1877,7 +1913,7 @@
                   ]
                 },
                 "milestoneId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 }
               },
               "additionalProperties": false,
@@ -1887,10 +1923,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -1907,7 +1943,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "passiveStart"
@@ -1916,7 +1952,7 @@
               "type": "object",
               "properties": {
                 "multipass": {
-                  "$ref": "#/definitions/types/multipass"
+                  "$ref": "#/$defs/types/multipass"
                 }
               },
               "additionalProperties": false,
@@ -1925,10 +1961,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -1945,7 +1981,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "permissionStart"
@@ -1960,15 +1996,15 @@
                   ]
                 },
                 "poolId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "multipass": {
-                  "$ref": "#/definitions/types/multipass"
+                  "$ref": "#/$defs/types/multipass"
                 },
                 "startTime": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/dateTime"
+                      "$ref": "#/$defs/types/dateTime"
                     },
                     {
                       "type": "null"
@@ -1985,10 +2021,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -2005,7 +2041,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "personaStart"
@@ -2016,7 +2052,7 @@
                 "startTime": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/dateTime"
+                      "$ref": "#/$defs/types/dateTime"
                     },
                     {
                       "type": "null"
@@ -2024,7 +2060,7 @@
                   ]
                 },
                 "personaId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 }
               },
               "additionalProperties": false,
@@ -2034,10 +2070,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -2054,7 +2090,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "selectiveProfileStart"
@@ -2065,7 +2101,7 @@
                 "startTime": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/dateTime"
+                      "$ref": "#/$defs/types/dateTime"
                     },
                     {
                       "type": "null"
@@ -2073,13 +2109,13 @@
                   ]
                 },
                 "poolId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "poolAttributeId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "poolAttributeOptionId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 }
               },
               "additionalProperties": false,
@@ -2091,10 +2127,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -2111,7 +2147,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "targetGroupStart"
@@ -2122,7 +2158,7 @@
                 "startTime": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/dateTime"
+                      "$ref": "#/$defs/types/dateTime"
                     },
                     {
                       "type": "null"
@@ -2130,10 +2166,10 @@
                   ]
                 },
                 "targetGroupId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "multipass": {
-                  "$ref": "#/definitions/types/multipass"
+                  "$ref": "#/$defs/types/multipass"
                 }
               },
               "additionalProperties": false,
@@ -2144,10 +2180,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -2164,7 +2200,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "type": {
               "const": "webTouchPointStart"
@@ -2173,18 +2209,18 @@
               "type": "object",
               "properties": {
                 "webTouchPointId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "linkId": {
-                  "$ref": "#/definitions/types/evalancheId"
+                  "$ref": "#/$defs/types/evalancheId"
                 },
                 "multipass": {
-                  "$ref": "#/definitions/types/multipass"
+                  "$ref": "#/$defs/types/multipass"
                 },
                 "startTime": {
                   "oneOf": [
                     {
-                      "$ref": "#/definitions/types/dateTime"
+                      "$ref": "#/$defs/types/dateTime"
                     },
                     {
                       "type": "null"
@@ -2201,10 +2237,10 @@
               ]
             },
             "meta": {
-              "$ref": "#/definitions/meta/node"
+              "$ref": "#/$defs/meta/node"
             },
             "connections": {
-              "$ref": "#/definitions/connections/singleOutput"
+              "$ref": "#/$defs/connections/singleOutput"
             }
           },
           "additionalProperties": false,
@@ -2224,7 +2260,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "$ref": "#/definitions/types/uuid"
+            "$ref": "#/$defs/types/uuid"
           },
           "type": {
             "const": "postit"
@@ -2253,7 +2289,7 @@
             "type": "object",
             "properties": {
               "position": {
-                "$ref": "#/definitions/meta/position"
+                "$ref": "#/$defs/meta/position"
               },
               "size": {
                 "type": "object",
@@ -2292,7 +2328,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "$ref": "#/definitions/types/uuid"
+            "$ref": "#/$defs/types/uuid"
           },
           "type": {
             "const": "referenceObject"
@@ -2311,7 +2347,7 @@
                 ]
               },
               "resourceId": {
-                "$ref": "#/definitions/types/evalancheId"
+                "$ref": "#/$defs/types/evalancheId"
               },
               "title": {
                 "type": "string"
@@ -2332,7 +2368,7 @@
             "type": "object",
             "properties": {
               "position": {
-                "$ref": "#/definitions/meta/position"
+                "$ref": "#/$defs/meta/position"
               }
             },
             "additionalProperties": false,
@@ -2344,16 +2380,16 @@
             "type": "object",
             "properties": {
               "top": {
-                "$ref": "#/definitions/meta/referenceConnectionContainer"
+                "$ref": "#/$defs/meta/referenceConnectionContainer"
               },
               "right": {
-                "$ref": "#/definitions/meta/referenceConnectionContainer"
+                "$ref": "#/$defs/meta/referenceConnectionContainer"
               },
               "bottom": {
-                "$ref": "#/definitions/meta/referenceConnectionContainer"
+                "$ref": "#/$defs/meta/referenceConnectionContainer"
               },
               "left": {
-                "$ref": "#/definitions/meta/referenceConnectionContainer"
+                "$ref": "#/$defs/meta/referenceConnectionContainer"
               }
             },
             "additionalProperties": false,
@@ -2380,7 +2416,7 @@
         "type": "object",
         "properties": {
           "position": {
-            "$ref": "#/definitions/meta/position"
+            "$ref": "#/$defs/meta/position"
           }
         },
         "additionalProperties": false,
@@ -2416,7 +2452,7 @@
               ]
             },
             "targetId": {
-              "$ref": "#/definitions/types/uuid"
+              "$ref": "#/$defs/types/uuid"
             },
             "targetDirection": {
               "enum": [
@@ -2438,7 +2474,7 @@
       "referenceConnection": {
         "properties": {
           "targetId": {
-            "$ref": "#/definitions/types/uuid"
+            "$ref": "#/$defs/types/uuid"
           },
           "direction": {
             "enum": [
@@ -2481,7 +2517,7 @@
                 "const": true
               },
               "lockDuration": {
-                "$ref": "#/definitions/types/duration"
+                "$ref": "#/$defs/types/duration"
               }
             },
             "additionalProperties": false,
@@ -2494,10 +2530,7 @@
             "type": "object",
             "properties": {
               "enabled": {
-                "description": "This needs to be an enum, const:false does not work with type-generator",
-                "enum": [
-                  false
-                ]
+                "const": false
               }
             },
             "additionalProperties": false,
@@ -2529,7 +2562,7 @@
                 "const": "duration"
               },
               "value": {
-                "$ref": "#/definitions/types/duration"
+                "$ref": "#/$defs/types/duration"
               }
             },
             "required": [
@@ -2545,7 +2578,7 @@
                 "const": "dateTime"
               },
               "value": {
-                "$ref": "#/definitions/types/dateTime"
+                "$ref": "#/$defs/types/dateTime"
               }
             },
             "required": [
@@ -2561,7 +2594,7 @@
                 "const": "weekdaysAndTime"
               },
               "value": {
-                "$ref": "#/definitions/types/weekdaysAndTime"
+                "$ref": "#/$defs/types/weekdaysAndTime"
               }
             },
             "required": [
@@ -2593,7 +2626,7 @@
                 "const": "duration"
               },
               "value": {
-                "$ref": "#/definitions/types/duration"
+                "$ref": "#/$defs/types/duration"
               }
             },
             "required": [
@@ -2609,7 +2642,7 @@
                 "const": "dateTime"
               },
               "value": {
-                "$ref": "#/definitions/types/dateTime"
+                "$ref": "#/$defs/types/dateTime"
               }
             },
             "required": [
@@ -2639,7 +2672,7 @@
             }
           },
           "time": {
-            "$ref": "#/definitions/types/time"
+            "$ref": "#/$defs/types/time"
           }
         },
         "required": [
@@ -2694,7 +2727,7 @@
           "true": {
             "oneOf": [
               {
-                "$ref": "#/definitions/types/uuid"
+                "$ref": "#/$defs/types/uuid"
               },
               {
                 "type": "null"
@@ -2713,7 +2746,7 @@
           "true": {
             "oneOf": [
               {
-                "$ref": "#/definitions/types/uuid"
+                "$ref": "#/$defs/types/uuid"
               },
               {
                 "type": "null"
@@ -2723,7 +2756,7 @@
           "false": {
             "oneOf": [
               {
-                "$ref": "#/definitions/types/uuid"
+                "$ref": "#/$defs/types/uuid"
               },
               {
                 "type": "null"
