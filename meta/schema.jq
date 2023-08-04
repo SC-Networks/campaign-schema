@@ -370,7 +370,7 @@
       },
       "dateTime": {
         "type": "string",
-        "format": "dateTime"
+        "format": "date-time"
       },
       "time": {
         "type": "string",
