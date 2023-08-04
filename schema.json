@@ -2025,6 +2025,9 @@
                 },
                 "personaId": {
                   "$ref": "#/definitions/types/evalancheId"
+                },
+                "multipass": {
+                  "$ref": "#/definitions/types/multipass"
                 }
               },
               "additionalProperties": false,
