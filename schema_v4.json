@@ -1,0 +1,2827 @@
+{
+  "$schema" : "https://json-schema.org/draft-07/schema#",
+  "$id" : "schema.json",
+  "title" : "SCN Workflow Config v4",
+  "description" : "Validates a given workflow config v4",
+  "type" : "object",
+  "properties" : {
+    "configFormat" : {
+      "const" : "4"
+    },
+    "nodes" : {
+      "type" : "array",
+      "items" : {
+        "anyOf" : [
+          {
+            "$ref" : "#/$defs/nodes/conditions/articleOpenedCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/copyToWorkflowAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/indicators/countIndicator"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/dateTimeCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/delayAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/endPoints/endPoint"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/externalCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/formEntryCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/starts/formStart"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/hasReachedMilestoneCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/isProfilePersonaCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/leadpageOpenedCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/mailingActivityCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/mailingClickedCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/mailingOpenedCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/mailingReceivedCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/starts/milestoneStart"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/notificationMailingAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/numberOfRunsCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/starts/passiveStart"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/percentualSplitCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/starts/permissionStart"
+          },
+          {
+            "$ref" : "#/$defs/nodes/starts/personaStart"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/profileAttributeTestCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/profileInRadiusOfLocationCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/scoreAccomplishedCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/starts/selectiveProfileStart"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/sendLetterAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/sendMailingAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/sendShortMessageAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/setActivityScoreAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/setMilestoneAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/setProfileAttributeValueAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/smartLinkLinkClickedCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/starts/targetGroupStart"
+          },
+          {
+            "$ref" : "#/$defs/nodes/indicators/targetIndicator"
+          },
+          {
+            "$ref" : "#/$defs/nodes/indicators/trendIndicator"
+          },
+          {
+            "$ref" : "#/$defs/nodes/actions/triggerWebhookAction"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/webTouchPointOpenedCondition"
+          },
+          {
+            "$ref" : "#/$defs/nodes/starts/webTouchPointStart"
+          },
+          {
+            "$ref" : "#/$defs/nodes/conditions/workflowFinishedCondition"
+          }
+        ]
+      }
+    },
+    "meta" : {
+      "type" : "object",
+      "properties" : {
+        "description" : {
+          "anyOf" : [
+            {
+              "$ref" : "#/$defs/meta/description"
+            },
+            {
+              "type" : "null"
+            }
+          ]
+        }
+      },
+      "required" : [
+        "description"
+      ],
+      "additionalProperties" : false
+    },
+    "helpers" : {
+      "type" : "array",
+      "items" : {
+        "anyOf" : [
+          {
+            "$ref" : "#/$defs/helpers/postit"
+          },
+          {
+            "$ref" : "#/$defs/helpers/referenceObject"
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties" : false,
+  "required" : [
+    "configFormat",
+    "nodes",
+    "meta",
+    "helpers"
+  ],
+  "$defs" : {
+    "nodes" : {
+      "actions" : {
+        "copyToWorkflowAction" : {
+          "title" : "copyToWorkflowAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "copyToWorkflowAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "workflowId" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/uuid"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "workflowId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "delayAction" : {
+          "title" : "delayAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "delayAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "wait" : {
+                  "$ref" : "#/$defs/types/wait"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "wait"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "notificationMailingAction" : {
+          "title" : "notificationMailingAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "notificationMailingAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "mailingId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "recipients" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "mailingId",
+                "recipients"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "sendLetterAction" : {
+          "title" : "sendLetterAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "sendLetterAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "letterId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "ignorePermission" : {
+                  "type" : "boolean"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "ignorePermission",
+                "letterId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "sendMailingAction" : {
+          "title" : "sendMailingAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "sendMailingAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "mailingId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "ignorePermission" : {
+                  "type" : "boolean"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "ignorePermission",
+                "mailingId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "sendShortMessageAction" : {
+          "title" : "sendShortMessageAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "sendShortMessageAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "shortMessageId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "ignorePermission" : {
+                  "type" : "boolean"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "ignorePermission",
+                "shortMessageId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "setActivityScoreAction" : {
+          "title" : "setActivityScoreAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "setActivityScoreAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "scoringGroupId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "scoreValue" : {
+                  "type" : "integer"
+                },
+                "scoreDescription" : {
+                  "type" : "string"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "scoreDescription",
+                "scoreValue",
+                "scoringGroupId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "setMilestoneAction" : {
+          "title" : "setMilestoneAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "setMilestoneAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "milestoneId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "milestoneId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "setProfileAttributeValueAction" : {
+          "title" : "setProfileAttributeValueAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "setProfileAttributeValueAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "poolId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "poolAttributeId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "poolAttributeValue" : {
+                  "$ref" : "#/$defs/types/poolAttributeValue"
+                },
+                "updateModificationTime" : {
+                  "type" : "boolean"
+                },
+                "mergeMultipleSelectionField" : {
+                  "type" : "boolean"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "mergeMultipleSelectionField",
+                "poolAttributeId",
+                "poolAttributeValue",
+                "poolId",
+                "updateModificationTime"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "triggerWebhookAction" : {
+          "title" : "triggerWebhookAction",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "triggerWebhookAction"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "webhookId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "webhookId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        }
+      },
+      "conditions" : {
+        "articleOpenedCondition" : {
+          "title" : "articleOpenedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "articleOpenedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "articleId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "articleId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "dateTimeCondition" : {
+          "title" : "dateTimeCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "dateTimeCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "dateTime" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/dateTime"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "operator" : {
+                  "enum" : [
+                    null,
+                    "before",
+                    "after"
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "dateTime",
+                "operator"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "externalCondition" : {
+          "title" : "externalCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "externalCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "url" : {
+                  "$ref" : "#/$defs/types/url"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "url"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "formEntryCondition" : {
+          "title" : "formEntryCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "formEntryCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "formId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "formId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "hasReachedMilestoneCondition" : {
+          "title" : "hasReachedMilestoneCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "hasReachedMilestoneCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "milestoneId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "milestoneId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "isProfilePersonaCondition" : {
+          "title" : "isProfilePersonaCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "isProfilePersonaCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "personaId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "personaId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "leadpageOpenedCondition" : {
+          "title" : "leadpageOpenedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "leadpageOpenedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "leadpageId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "leadpageId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "mailingActivityCondition" : {
+          "title" : "mailingActivityCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "mailingActivityCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "emailingId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "emailingId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "mailingClickedCondition" : {
+          "title" : "mailingClickedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "mailingClickedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "emailingId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "emailingId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "mailingOpenedCondition" : {
+          "title" : "mailingOpenedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "mailingOpenedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "emailingId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "emailingId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "mailingReceivedCondition" : {
+          "title" : "mailingReceivedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "mailingReceivedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "emailingId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "emailingId",
+                "since",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "numberOfRunsCondition" : {
+          "title" : "numberOfRunsCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "numberOfRunsCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "runs" : {
+                  "type" : "integer"
+                },
+                "operator" : {
+                  "anyOf" : [
+                    {
+                      "type" : "null"
+                    },
+                    {
+                      "$ref" : "#/$defs/types/baseOperator"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "operator",
+                "runs"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "percentualSplitCondition" : {
+          "title" : "percentualSplitCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "percentualSplitCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "ratio" : {
+                  "$ref" : "#/$defs/types/ratio"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "ratio"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "profileAttributeTestCondition" : {
+          "title" : "profileAttributeTestCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "profileAttributeTestCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "poolId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "poolAttributeId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "poolAttributeValue" : {
+                  "$ref" : "#/$defs/types/poolAttributeValue"
+                },
+                "operator" : {
+                  "anyOf" : [
+                    {
+                      "type" : "null"
+                    },
+                    {
+                      "$ref" : "#/$defs/types/baseOperator"
+                    },
+                    {
+                      "$ref" : "#/$defs/types/extendedOperator"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "operator",
+                "poolAttributeId",
+                "poolAttributeValue",
+                "poolId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "profileInRadiusOfLocationCondition" : {
+          "title" : "profileInRadiusOfLocationCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "profileInRadiusOfLocationCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "position" : {
+                  "type" : "object",
+                  "properties" : {
+                    "longitude" : {
+                      "type" : "number",
+                      "min" : -90,
+                      "max" : 90
+                    },
+                    "latitude" : {
+                      "type" : "number",
+                      "min" : -90,
+                      "max" : 90
+                    }
+                  },
+                  "additionalProperties" : false,
+                  "required" : [
+                    "longitude",
+                    "latitude"
+                  ]
+                },
+                "radius" : {
+                  "$ref" : "#/$defs/types/radius"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "position",
+                "radius"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "scoreAccomplishedCondition" : {
+          "title" : "scoreAccomplishedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "scoreAccomplishedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "scoringGroupId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "scoreValue" : {
+                  "anyOf" : [
+                    {
+                      "type" : "null"
+                    },
+                    {
+                      "type" : "object",
+                      "properties" : {
+                        "type" : {
+                          "enum" : [
+                            "activity",
+                            "profile"
+                          ]
+                        },
+                        "value" : {
+                          "type" : "integer"
+                        }
+                      },
+                      "required" : [
+                        "type",
+                        "value"
+                      ],
+                      "additionalProperties" : false
+                    },
+                    {
+                      "type" : "object",
+                      "properties" : {
+                        "type" : {
+                          "const" : "matrix"
+                        },
+                        "value" : {
+                          "$ref" : "#/$defs/types/evalancheId"
+                        }
+                      },
+                      "required" : [
+                        "type",
+                        "value"
+                      ],
+                      "additionalProperties" : false
+                    }
+                  ]
+                },
+                "operator" : {
+                  "anyOf" : [
+                    {
+                      "type" : "null"
+                    },
+                    {
+                      "$ref" : "#/$defs/types/baseOperator"
+                    },
+                    {
+                      "const" : "notEqual"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "operator",
+                "scoreValue",
+                "scoringGroupId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "smartLinkLinkClickedCondition" : {
+          "title" : "smartLinkLinkClickedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "smartLinkLinkClickedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "smartLinkId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "linkId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "targetId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "linkId",
+                "since",
+                "smartLinkId",
+                "targetId",
+                "waitFor"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "webTouchPointOpenedCondition" : {
+          "title" : "webTouchPointOpenedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "webTouchPointOpenedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "webTouchPointId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "linkId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "since" : {
+                  "$ref" : "#/$defs/types/since"
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "linkId",
+                "since",
+                "waitFor",
+                "webTouchPointId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "workflowFinishedCondition" : {
+          "title" : "workflowFinishedCondition",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "workflowFinishedCondition"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "workflowId" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/uuid"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "waitFor" : {
+                  "$ref" : "#/$defs/types/duration"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "waitFor",
+                "workflowId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/doubleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        }
+      },
+      "endPoints" : {
+        "endPoint" : {
+          "title" : "endPoint",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "endPoint"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {},
+              "additionalProperties" : false,
+              "required" : []
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta"
+          ]
+        }
+      },
+      "indicators" : {
+        "countIndicator" : {
+          "title" : "countIndicator",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "countIndicator"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "name" : {
+                  "type" : "string"
+                },
+                "startDate" : {
+                  "$ref" : "#/$defs/types/dateTime"
+                },
+                "rating" : {
+                  "enum" : [
+                    "neutral",
+                    "positive",
+                    "negative"
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "name",
+                "rating",
+                "startDate"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "targetIndicator" : {
+          "title" : "targetIndicator",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "targetIndicator"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "name" : {
+                  "type" : "string"
+                },
+                "startDate" : {
+                  "anyOf" : [
+                    {
+                      "type" : "object",
+                      "properties" : {
+                        "type" : {
+                          "const" : "date"
+                        },
+                        "value" : {
+                          "$ref" : "#/$defs/types/dateTime"
+                        }
+                      },
+                      "additionalProperties" : false,
+                      "required" : [
+                        "type",
+                        "value"
+                      ]
+                    },
+                    {
+                      "type" : "object",
+                      "properties" : {
+                        "type" : {
+                          "const" : "days"
+                        },
+                        "value" : {
+                          "type" : "integer",
+                          "minimum" : 1
+                        }
+                      },
+                      "additionalProperties" : false,
+                      "required" : [
+                        "type",
+                        "value"
+                      ]
+                    }
+                  ]
+                },
+                "target" : {
+                  "anyOf" : [
+                    {
+                      "type" : "object",
+                      "properties" : {
+                        "type" : {
+                          "const" : "absolute"
+                        },
+                        "value" : {
+                          "type" : "integer",
+                          "minimum" : 1
+                        }
+                      },
+                      "additionalProperties" : false,
+                      "required" : [
+                        "type",
+                        "value"
+                      ]
+                    },
+                    {
+                      "type" : "object",
+                      "properties" : {
+                        "type" : {
+                          "const" : "percentage"
+                        },
+                        "value" : {
+                          "type" : "integer",
+                          "minimum" : 1,
+                          "maximum" : 100
+                        }
+                      },
+                      "additionalProperties" : false,
+                      "required" : [
+                        "type",
+                        "value"
+                      ]
+                    }
+                  ]
+                },
+                "rating" : {
+                  "enum" : [
+                    "positive",
+                    "negative"
+                  ]
+                },
+                "display" : {
+                  "enum" : [
+                    "absolute",
+                    "percentage"
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "display",
+                "name",
+                "rating",
+                "startDate",
+                "target"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "trendIndicator" : {
+          "title" : "trendIndicator",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "trendIndicator"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "name" : {
+                  "type" : "string"
+                },
+                "period" : {
+                  "enum" : [
+                    "30days",
+                    "6months"
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "name",
+                "period"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        }
+      },
+      "starts" : {
+        "formStart" : {
+          "title" : "formStart",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "formStart"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "startTime" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/dateTime"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "formId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "multipass" : {
+                  "$ref" : "#/$defs/types/multipass"
+                },
+                "handleUpdates" : {
+                  "type" : "boolean"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "formId",
+                "handleUpdates",
+                "multipass",
+                "startTime"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "milestoneStart" : {
+          "title" : "milestoneStart",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "milestoneStart"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "startTime" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/dateTime"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "milestoneId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "milestoneId",
+                "startTime"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "passiveStart" : {
+          "title" : "passiveStart",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "passiveStart"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "multipass" : {
+                  "$ref" : "#/$defs/types/multipass"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "multipass"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "permissionStart" : {
+          "title" : "permissionStart",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "permissionStart"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "permission" : {
+                  "enum" : [
+                    "confirmed",
+                    "unsubscribed"
+                  ]
+                },
+                "poolId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "multipass" : {
+                  "$ref" : "#/$defs/types/multipass"
+                },
+                "startTime" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/dateTime"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "multipass",
+                "permission",
+                "poolId",
+                "startTime"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "personaStart" : {
+          "title" : "personaStart",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "personaStart"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "startTime" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/dateTime"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "personaId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "multipass" : {
+                  "$ref" : "#/$defs/types/multipass"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "personaId",
+                "startTime"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "selectiveProfileStart" : {
+          "title" : "selectiveProfileStart",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "selectiveProfileStart"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "startTime" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/dateTime"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "poolId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "poolAttributeId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "poolAttributeOptionId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "poolAttributeId",
+                "poolAttributeOptionId",
+                "poolId",
+                "startTime"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "targetGroupStart" : {
+          "title" : "targetGroupStart",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "targetGroupStart"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "startTime" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/dateTime"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "targetGroupId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "multipass" : {
+                  "$ref" : "#/$defs/types/multipass"
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "multipass",
+                "startTime",
+                "targetGroupId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        },
+        "webTouchPointStart" : {
+          "title" : "webTouchPointStart",
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "type" : {
+              "const" : "webTouchPointStart"
+            },
+            "config" : {
+              "type" : "object",
+              "properties" : {
+                "webTouchPointId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "linkId" : {
+                  "$ref" : "#/$defs/types/evalancheId"
+                },
+                "multipass" : {
+                  "$ref" : "#/$defs/types/multipass"
+                },
+                "startTime" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/$defs/types/dateTime"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties" : false,
+              "required" : [
+                "linkId",
+                "multipass",
+                "startTime",
+                "webTouchPointId"
+              ]
+            },
+            "meta" : {
+              "$ref" : "#/$defs/meta/node"
+            },
+            "connections" : {
+              "$ref" : "#/$defs/connections/singleOutput"
+            }
+          },
+          "additionalProperties" : false,
+          "required" : [
+            "id",
+            "type",
+            "config",
+            "meta",
+            "connections"
+          ]
+        }
+      }
+    },
+    "helpers" : {
+      "postit" : {
+        "title" : "postit",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "$ref" : "#/$defs/types/uuid"
+          },
+          "type" : {
+            "const" : "postit"
+          },
+          "config" : {
+            "type" : "object",
+            "properties" : {
+              "description" : {
+                "$ref" : "#/$defs/meta/description"
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "description"
+            ]
+          },
+          "meta" : {
+            "type" : "object",
+            "properties" : {
+              "position" : {
+                "$ref" : "#/$defs/meta/position"
+              },
+              "size" : {
+                "type" : "object",
+                "properties" : {
+                  "width" : {
+                    "type" : "integer"
+                  },
+                  "height" : {
+                    "type" : "integer"
+                  }
+                },
+                "required" : [
+                  "width",
+                  "height"
+                ],
+                "additionalProperties" : false
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "position",
+              "size"
+            ]
+          }
+        },
+        "additionalProperties" : false,
+        "required" : [
+          "id",
+          "type",
+          "config",
+          "meta"
+        ]
+      },
+      "referenceObject" : {
+        "title" : "referenceObject",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "$ref" : "#/$defs/types/uuid"
+          },
+          "type" : {
+            "const" : "referenceObject"
+          },
+          "config" : {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "anyOf" : [
+                  {
+                    "type" : "integer"
+                  },
+                  {
+                    "type" : "null"
+                  }
+                ]
+              },
+              "resourceId" : {
+                "$ref" : "#/$defs/types/evalancheId"
+              },
+              "title" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "type",
+              "resourceId",
+              "title",
+              "description"
+            ]
+          },
+          "meta" : {
+            "type" : "object",
+            "properties" : {
+              "position" : {
+                "$ref" : "#/$defs/meta/position"
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "position"
+            ]
+          },
+          "connections" : {
+            "type" : "object",
+            "properties" : {
+              "top" : {
+                "$ref" : "#/$defs/meta/referenceConnectionContainer"
+              },
+              "right" : {
+                "$ref" : "#/$defs/meta/referenceConnectionContainer"
+              },
+              "bottom" : {
+                "$ref" : "#/$defs/meta/referenceConnectionContainer"
+              },
+              "left" : {
+                "$ref" : "#/$defs/meta/referenceConnectionContainer"
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ]
+          }
+        },
+        "additionalProperties" : false,
+        "required" : [
+          "id",
+          "type",
+          "config",
+          "meta",
+          "connections"
+        ]
+      }
+    },
+    "meta" : {
+      "node" : {
+        "type" : "object",
+        "properties" : {
+          "position" : {
+            "$ref" : "#/$defs/meta/position"
+          },
+          "description" : {
+            "anyOf" : [
+              {
+                "$ref" : "#/$defs/meta/description"
+              },
+              {
+                "type" : "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties" : false,
+        "required" : [
+          "position",
+          "description"
+        ]
+      },
+      "position" : {
+        "type" : "object",
+        "properties" : {
+          "x" : {
+            "type" : "integer"
+          },
+          "y" : {
+            "type" : "integer"
+          }
+        },
+        "required" : [
+          "x",
+          "y"
+        ],
+        "additionalProperties" : false
+      },
+      "description" : {
+        "type" : "object",
+        "properties" : {
+          "text" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          }
+        },
+        "required" : [
+          "text",
+          "color"
+        ],
+        "additionalProperties" : false
+      },
+      "referenceConnectionContainer" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "targetType" : {
+              "enum" : [
+                "referenceObject",
+                "node"
+              ]
+            },
+            "targetId" : {
+              "$ref" : "#/$defs/types/uuid"
+            },
+            "targetDirection" : {
+              "enum" : [
+                "top",
+                "right",
+                "bottom",
+                "left"
+              ]
+            }
+          },
+          "required" : [
+            "targetId",
+            "targetType",
+            "targetDirection"
+          ],
+          "additionalProperties" : false
+        }
+      },
+      "referenceConnection" : {
+        "properties" : {
+          "targetId" : {
+            "$ref" : "#/$defs/types/uuid"
+          },
+          "direction" : {
+            "enum" : [
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ]
+          }
+        },
+        "additionalProperties" : false,
+        "required" : [
+          "targetId",
+          "direction"
+        ]
+      }
+    },
+    "types" : {
+      "uuid" : {
+        "type" : "string",
+        "format" : "uuid"
+      },
+      "evalancheId" : {
+        "anyOf" : [
+          {
+            "type" : "integer",
+            "minimum" : 1
+          },
+          {
+            "type" : "null"
+          }
+        ]
+      },
+      "multipass" : {
+        "anyOf" : [
+          {
+            "type" : "object",
+            "properties" : {
+              "enabled" : {
+                "const" : true
+              },
+              "lockDuration" : {
+                "$ref" : "#/$defs/types/duration"
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "enabled",
+              "lockDuration"
+            ]
+          },
+          {
+            "type" : "object",
+            "properties" : {
+              "enabled" : {
+                "const" : false
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "enabled"
+            ]
+          }
+        ]
+      },
+      "duration" : {
+        "description" : "subset of a iso 8601 duration, only days and hours are allowed",
+        "type" : "string",
+        "pattern" : "^P\\d+DT\\d+H$"
+      },
+      "dateTime" : {
+        "type" : "string",
+        "format" : "date-time"
+      },
+      "time" : {
+        "type" : "string",
+        "format" : "time"
+      },
+      "wait" : {
+        "anyOf" : [
+          {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "const" : "duration"
+              },
+              "value" : {
+                "$ref" : "#/$defs/types/duration"
+              }
+            },
+            "required" : [
+              "type",
+              "value"
+            ],
+            "additionalProperties" : false
+          },
+          {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "const" : "dateTime"
+              },
+              "value" : {
+                "$ref" : "#/$defs/types/dateTime"
+              }
+            },
+            "required" : [
+              "type",
+              "value"
+            ],
+            "additionalProperties" : false
+          },
+          {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "const" : "weekdaysAndTime"
+              },
+              "value" : {
+                "$ref" : "#/$defs/types/weekdaysAndTime"
+              }
+            },
+            "required" : [
+              "type",
+              "value"
+            ],
+            "additionalProperties" : false
+          }
+        ]
+      },
+      "since" : {
+        "anyOf" : [
+          {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "const" : "beginning"
+              }
+            },
+            "required" : [
+              "type"
+            ],
+            "additionalProperties" : false
+          },
+          {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "const" : "duration"
+              },
+              "value" : {
+                "$ref" : "#/$defs/types/duration"
+              }
+            },
+            "required" : [
+              "type",
+              "value"
+            ],
+            "additionalProperties" : false
+          },
+          {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "const" : "dateTime"
+              },
+              "value" : {
+                "$ref" : "#/$defs/types/dateTime"
+              }
+            },
+            "required" : [
+              "type",
+              "value"
+            ],
+            "additionalProperties" : false
+          }
+        ]
+      },
+      "weekdaysAndTime" : {
+        "type" : "object",
+        "properties" : {
+          "days" : {
+            "type" : "array",
+            "uniqueItems" : true,
+            "items" : {
+              "enum" : [
+                "mon",
+                "tue",
+                "wed",
+                "thu",
+                "fri",
+                "sat",
+                "sun"
+              ]
+            }
+          },
+          "time" : {
+            "$ref" : "#/$defs/types/time"
+          }
+        },
+        "required" : [
+          "days",
+          "time"
+        ],
+        "additionalProperties" : false
+      },
+      "baseOperator" : {
+        "enum" : [
+          "equal",
+          "lessThan",
+          "lessThanOrEqual",
+          "greaterThan",
+          "greaterThanOrEqual"
+        ]
+      },
+      "extendedOperator" : {
+        "enum" : [
+          "notEqual",
+          "contains",
+          "endsWith",
+          "is",
+          "isNot",
+          "containsNot",
+          "containsAny",
+          "containsNotAny",
+          "sameDay",
+          "isExactly",
+          "sameMonth",
+          "equalsInet"
+        ]
+      },
+      "radius" : {
+        "type" : "integer",
+        "minimum" : 1,
+        "maximum" : 100
+      },
+      "url" : {
+        "type" : "string"
+      },
+      "ratio" : {
+        "type" : "integer",
+        "minimum" : 0,
+        "maximum" : 100
+      },
+      "poolAttributeValue" : {
+        "anyOf" : [
+          {
+            "type" : "null"
+          },
+          {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "const" : "literal"
+              },
+              "value" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "type",
+              "value"
+            ]
+          },
+          {
+            "type" : "object",
+            "properties" : {
+              "type" : {
+                "const" : "option"
+              },
+              "value" : {
+                "$ref" : "#/$defs/types/evalancheId"
+              }
+            },
+            "additionalProperties" : false,
+            "required" : [
+              "type",
+              "value"
+            ]
+          }
+        ]
+      }
+    },
+    "connections" : {
+      "singleOutput" : {
+        "type" : "object",
+        "properties" : {
+          "true" : {
+            "anyOf" : [
+              {
+                "$ref" : "#/$defs/types/uuid"
+              },
+              {
+                "type" : "null"
+              }
+            ]
+          }
+        },
+        "required" : [
+          "true"
+        ],
+        "additionalProperties" : false
+      },
+      "doubleOutput" : {
+        "type" : "object",
+        "properties" : {
+          "true" : {
+            "anyOf" : [
+              {
+                "$ref" : "#/$defs/types/uuid"
+              },
+              {
+                "type" : "null"
+              }
+            ]
+          },
+          "false" : {
+            "anyOf" : [
+              {
+                "$ref" : "#/$defs/types/uuid"
+              },
+              {
+                "type" : "null"
+              }
+            ]
+          }
+        },
+        "required" : [
+          "true",
+          "false"
+        ],
+        "additionalProperties" : false
+      }
+    }
+  }
+}
